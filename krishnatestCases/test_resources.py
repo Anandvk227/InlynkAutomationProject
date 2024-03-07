@@ -127,7 +127,7 @@ class Test_001_Resources:
         #     self.logger.info("********* category creation Test is Passed ***********")
         #
         # else:
-        #     self.driver.save_screenshot(".\\ScreenShots\\" + "test_resources1.png")
+        #     self.driver.save_screenshot(".\\Screenshots\\" + "test_resources1.png")
         #     self.logger.error("********* category creation Test is Failed ***********")
         #     self.driver.close()
         #     assert False
@@ -321,7 +321,7 @@ class Test_001_Resources:
         #     self.logger.info("********* category creation Test is Passed ***********")
         #
         # else:
-        #     self.driver.save_screenshot(".\\ScreenShots\\" + "test_resources1.png")
+        #     self.driver.save_screenshot(".\\Screenshots\\" + "test_resources1.png")
         #     self.logger.error("********* category creation Test is Failed ***********")
         #     self.driver.close()
         #     assert False

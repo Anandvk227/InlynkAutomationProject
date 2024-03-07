@@ -838,10 +838,6 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_sharenewsfeed(self):
         self.logger.info("************* Test_017_NewsFeed **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -1157,10 +1153,6 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_adminasemployeefeed(self, setup):
         self.logger.info("************* Test_018_NewsFeed **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.usernames3)
         self.lp.setPassword(self.password)

@@ -60,6 +60,8 @@ class NewsFeed:
     commenteditsend_CSS_SELECTOR = "svg[data-testid='SendIcon']"
     commentdelete_xpath = "//span[@class='flexInline pointer']"
     commentconfirmdelete_xpath = "//button[normalize-space()='Delete']"
+    rolechange_xpath = "//div[@id='demo-multiple-name']"
+    employeeselect_xpath = "//li[@data-value='true']"
 
 
 
@@ -69,6 +71,11 @@ class NewsFeed:
         self.driver = driver
 
 
+    def clickonrolechange(self):
+        self.driver.find_element(By.XPATH,self.rolechange_xpath).click()
+
+    def clickonemployeeselect(self):
+        self.driver.find_element(By.XPATH,self.employeeselect_xpath).click()
 
 
     def clickOnwhat(self):
