@@ -31,11 +31,14 @@ class Recognitions:
     button_clickback_xpath="//button[normalize-space()='Back']"
     button_selecttemplatetwo_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/div[3]/div[1]/div[2]"
     button_selectbadgetwo_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/div[3]/div[1]/div[2]"
+<<<<<<< HEAD
     click_my_profile_xpath="//body/div[@id='root']/div[contains(@class,'baseBlockCntnr')]/div[contains(@class,'flexCol fullHeight')]/div[contains(@class,'flexCol resSideNav')]/ul[contains(@class,'flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollY')]/div[contains(@class,'flexCol pdngTLG mrgnTLG')]/div[1]"
     click_my_Recognition_xpath="//div[contains(@class,'flexCol whiteBg pdngSM brdrBlackSM brdrRadiusSM newsfeedShadow')]//div[1]//div[1]//div[1]//div[1]//div[2]//div[3]//span[2]"
     click_back_recognition_xpath="//button[@class='flexInline slideBtns slideCloseBtn alignCntr justifyCntr']"
     click_download_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[@class=' innerMainCntnr sideNav']/div[@class='flexCol positionRelative']/div[@class='flexCol positionAbs profileDetailsBody alignCntr justifyCntr']/div[@class='flexCol profileChildCntr']/div[@class='flexCol mrgnVXS']/div[@class='flexCol pdngXS']/div[@class='flexCol whiteBg pdngSM brdrBlackSM brdrRadiusSM newsfeedShadow']/div[@class='flexWrap mrgnTSM']/div[1]/div[2]/div[2]/span[1]"
     select_type_to_download_xpath="//div[@id='account-menu']//li[1]"
+=======
+>>>>>>> ad87542115e9232134461826ce188a663850c551
 
 
 
@@ -142,6 +145,7 @@ class Recognitions:
     def selectbannertwo(self):
         element = self.driver.find_element(By.XPATH, self.button_selectbadgetwo_xpath)
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
+<<<<<<< HEAD
         time.sleep(1)
         element.click()
 
@@ -181,3 +185,9 @@ class Recognitions:
 
 
 
+=======
+        time.sleep(2)
+        element.click()
+
+
+>>>>>>> ad87542115e9232134461826ce188a663850c551

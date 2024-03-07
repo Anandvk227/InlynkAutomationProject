@@ -1,8 +1,11 @@
 import pytest
 from selenium import webdriver
+<<<<<<< HEAD
 import pytest
 from selenium import webdriver
 from pytest_html import extras
+=======
+>>>>>>> ad87542115e9232134461826ce188a663850c551
 
 @pytest.fixture()
 def setup(browser):
