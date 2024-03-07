@@ -19,8 +19,7 @@ def pytest_addoption(parser):    # This will get the value from CLI /hooks
 def browser(request):  # This will return the Browser value to setup method
     return request.config.getoption("--browser")
 
-<<<<<<< HEAD
-=======
+
 def pytest_configure(config):
     config._metadata = {
         'Project Name': 'nop Commerce',
@@ -28,7 +27,6 @@ def pytest_configure(config):
         'Tester': 'Anand'
     }
 
->>>>>>> ad87542115e9232134461826ce188a663850c551
 @pytest.fixture()
 def run_number(request):
     return request.param
