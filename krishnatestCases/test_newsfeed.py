@@ -1150,5 +1150,40 @@ class TestNewsFeed(BaseClass):
             self.logger.info("************** NewsFeed test is passed **********")
             # self.driver.close()
 
+    @pytest.mark.babi
+    @pytest.mark.regression
+    @pytest.mark.run(order=21)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.skip(reason="Skipping this test")
+    def test_adminasemployeefeed(self, setup):
+        self.logger.info("************* Test_018_NewsFeed **********")
+        self.driver = setup
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.usernames3)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        self.logger.info("************* Login succesful **********")
+
+        self.logger.info("******* Starting NewsFeed Test **********")
+        self.nf = NewsFeed(self.driver)
+        self.nf.clickOnwhat()
+        self.nf.clickonrolechange()
+        self.nf.clickonemployeeselect()
+        self.nf.setwhatso(self.whatso)
+        self.nf.clickonpost()
+        time.sleep(3)
+        if "News feed created successfully" in self.driver.page_source:
+            self.logger.info("********** NewsFeed test is passed *********")
+            # self.driver.close()
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** NewsFeed test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedcreation.png")
+            assert False
+
     if __name__ == '__main__':
         unittest.main(verbosity=2)
