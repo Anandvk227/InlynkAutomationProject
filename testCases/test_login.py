@@ -57,11 +57,11 @@ class TestLogin(BaseClass):
 
         if act_Text == "Incorrect username or password.":
             assert True
-            self.logger.info("********* ivalid Login password Test is Passed ***********")
+            self.logger.info("********* invalid Login password Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_homePageTitle.png")
-            self.logger.error("********* ivalid Login password Test is Failed ***********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_login_inValid_Password.png")
+            self.logger.error("********* invalid Login password Test is Failed ***********")
             assert False
 
     @pytest.mark.run(order=6)
@@ -79,11 +79,11 @@ class TestLogin(BaseClass):
 
         if act_Text == "Incorrect username or password.":
             assert True
-            self.logger.info("********* ivalid Login Username Test is Passed ***********")
+            self.logger.info("********* invalid Login Username Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_homePageTitle.png")
-            self.logger.error("********* ivalid Login Username Test is Failed ***********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_login_inValid_Username.png")
+            self.logger.error("********* invalid Login Username Test is Failed ***********")
             assert False
 
 
@@ -110,7 +110,7 @@ class TestLogin(BaseClass):
             self.logger.info("********* Login Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_homePageTitle.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_login_Valid_UsernamePassword.png")
             self.logger.error("********* Login Test is Failed ***********")
             assert False
 

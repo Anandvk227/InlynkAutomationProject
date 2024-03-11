@@ -88,7 +88,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=43)
     @pytest.mark.flaky(reruns=3,reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforemployees(self):
@@ -132,7 +132,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=2)
+    @pytest.mark.run(order=44)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforempndrel(self):
@@ -177,7 +177,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.test
     @pytest.mark.regression
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=45)
     # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforpartners(self):
@@ -223,7 +223,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=46)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforarchived(self):
@@ -264,7 +264,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=5)
+    @pytest.mark.run(order=47)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwithimage(self):
@@ -308,7 +308,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=6)
+    @pytest.mark.run(order=48)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwith5images(self):
@@ -357,7 +357,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=7)
+    @pytest.mark.run(order=49)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwith6images(self):
@@ -391,7 +391,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=8)
+    @pytest.mark.run(order=50)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwithimages(self):
@@ -442,7 +442,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=9)
+    @pytest.mark.run(order=51)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
 
@@ -474,7 +474,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.test
     @pytest.mark.regression
-    @pytest.mark.run(order=10)
+    @pytest.mark.run(order=52)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforemployeesvideos(self):
@@ -519,7 +519,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=11)
+    @pytest.mark.run(order=53)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforempndrelvideo(self):
@@ -567,7 +567,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=12)
+    @pytest.mark.run(order=54)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_editnewsfeedforemployees(self):
@@ -627,7 +627,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=13)
+    @pytest.mark.run(order=55)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_deletenewsfeedforempndrelvideo(self):
@@ -674,7 +674,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=14)
+    @pytest.mark.run(order=56)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_archivenewsfeedwith5images(self):
@@ -733,7 +733,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=15)
+    @pytest.mark.run(order=57)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_bookmarknewsfeed(self):
@@ -790,7 +790,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=16)
+    @pytest.mark.run(order=58)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_selfposts(self):
@@ -833,15 +833,11 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=17)
+    @pytest.mark.run(order=59)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_sharenewsfeed(self):
         self.logger.info("************* Test_017_NewsFeed **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -989,7 +985,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=18)
+    @pytest.mark.run(order=60)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_adminfeed(self):
@@ -1034,7 +1030,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=19)
+    @pytest.mark.run(order=61)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_feedcomment(self):
@@ -1102,7 +1098,7 @@ class TestNewsFeed(BaseClass):
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=20)
+    @pytest.mark.run(order=62)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_editfeedcomment(self):
@@ -1149,6 +1145,37 @@ class TestNewsFeed(BaseClass):
         else:
             self.logger.info("************** NewsFeed test is passed **********")
             # self.driver.close()
+
+    @pytest.mark.babi
+    @pytest.mark.regression
+    @pytest.mark.run(order=63)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.skip(reason="Skipping this test")
+    def test_adminasemployeefeed(self):
+        self.logger.info("************* Test_018_NewsFeed **********")
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.usernames3)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        self.logger.info("************* Login succesful **********")
+
+        self.logger.info("******* Starting NewsFeed Test **********")
+        self.nf = NewsFeed(self.driver)
+        self.nf.clickOnwhat()
+        self.nf.clickonrolechange()
+        self.nf.clickonemployeeselect()
+        self.nf.setwhatso(self.whatso)
+        self.nf.clickonpost()
+        time.sleep(3)
+        if "News feed created successfully" in self.driver.page_source:
+            self.logger.info("********** NewsFeed test is passed *********")
+            # self.driver.close()
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** NewsFeed test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedcreation.png")
+            assert False
 
     if __name__ == '__main__':
         unittest.main(verbosity=2)

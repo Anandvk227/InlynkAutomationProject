@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class Recognitions:
 
-    button_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[contains(@class,'flexCol resSideNav')]/ul[@class='flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollY']/div[1]/div[1]"
+    button_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[contains(@class,'flexCol resSideNav')]/ul[@class='flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollbarSideNav']/div[1]/div[1]/div[2]"
     button_newrecognition_xpath="//div[@class='flexAutoRow pointer pdngLSM webSearch']"
     button_selecttemplate_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]"
     button_selectbadge_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/div[2]/div[1]/div[2]"
@@ -31,6 +31,7 @@ class Recognitions:
     button_clickback_xpath="//button[normalize-space()='Back']"
     button_selecttemplatetwo_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/div[3]/div[1]/div[2]"
     button_selectbadgetwo_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/div[3]/div[1]/div[2]"
+
     click_my_profile_xpath="//body/div[@id='root']/div[contains(@class,'baseBlockCntnr')]/div[contains(@class,'flexCol fullHeight')]/div[contains(@class,'flexCol resSideNav')]/ul[contains(@class,'flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollY')]/div[contains(@class,'flexCol pdngTLG mrgnTLG')]/div[1]"
     click_my_Recognition_xpath="//div[contains(@class,'flexCol whiteBg pdngSM brdrBlackSM brdrRadiusSM newsfeedShadow')]//div[1]//div[1]//div[1]//div[1]//div[2]//div[3]//span[2]"
     click_back_recognition_xpath="//button[@class='flexInline slideBtns slideCloseBtn alignCntr justifyCntr']"
@@ -142,6 +143,7 @@ class Recognitions:
     def selectbannertwo(self):
         element = self.driver.find_element(By.XPATH, self.button_selectbadgetwo_xpath)
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
+
         time.sleep(1)
         element.click()
 

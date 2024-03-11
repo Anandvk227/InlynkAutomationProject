@@ -11,9 +11,10 @@ from pageObjects.randomGen import randomGen
 from sunithaPageObjects.WebinarPage import WebinarPage
 from utilities.customLogger import LogGen
 from utilities.readProperties import ReadConfig
+from GenericLib.BaseClass import BaseClass
 
 
-class Test_Webinar:
+class Test_Webinar(BaseClass):
     workbook = load_workbook("TestData/LoginData.xlsx")
 
     # Access the active worksheet
@@ -58,12 +59,9 @@ class Test_Webinar:
     shareholderPassword = "Inlink@123"
     workbook.close()
 
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=86)
     # @pytest.mark.skip(reason="skipping this test")
     def test_webinar(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.logger.info("****** Login verification *****")
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
@@ -131,7 +129,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_webinar.png")
             assert False
 
         # time.sleep(3)
@@ -145,15 +143,13 @@ class Test_Webinar:
         #     self.logger.error("Page source:\n%s" % self.driver.page_source)
         #     assert False
         # time.sleep(2)
-        self.driver.close()
 
-    @pytest.mark.run(order=2)
+
+    @pytest.mark.run(order=87)
     # @pytest.mark.suni
     @pytest.mark.skip(reason="skipping this test")
     def test_EmployeeBookSeat(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
+
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -181,7 +177,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         # time.sleep(2)
@@ -221,7 +217,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         time.sleep(1)
@@ -251,20 +247,16 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
-        self.driver.close()
+
 
     # Webinar Past tab -------------------------------------------Webinar Past tab
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=88)
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastTabsSessionVerification(self):
-        # login code
-        self.driver = webdriver.Chrome()
 
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -295,22 +287,19 @@ class Test_Webinar:
 
         else:
             self.logger.info("********* test_PastTabsSessionVerification is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_PastTabsSessionVerification.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_PastTabsSessionVerification.png")
             # self.driver.close()
             assert False
 
         self.wp.ClosePollHistory()
         self.wp.PastSessionBreadcrumb()
-        self.driver.close()
+
 
     # webinar past session search bar----------------------------webinar past session search bar
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=89)
     @pytest.mark.sunitha
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastSessionCardSearch(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -333,22 +322,19 @@ class Test_Webinar:
 
         else:
             self.logger.error("********* test_PastSessionCardSearch Test is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_PastSessionCardSearch.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_PastSessionCardSearch.png")
             self.logger.error("Page source:\n%s" % self.driver.page_source)
             assert False
 
         self.wp.SessionCard()
         self.wp.SessionCardClose()
-        self.driver.close()
+
 
         # Webinar past tab filter-------------------------------Webinar past tab filter
 
-    @pytest.mark.run(order=5)
+    @pytest.mark.run(order=90)
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastTabFilter(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -374,16 +360,13 @@ class Test_Webinar:
         self.wp.TrainingCheckBox()
         self.wp.WebinarCheckbox()
         self.wp.ApplyButton()
-        self.driver.close()
+
 
         # webinar upcoming tab------------------------------------------webinar upcoming tab
 
-    @pytest.mark.run(order=6)
+    @pytest.mark.run(order=91)
     # @pytest.mark.skip(reason="skipping this test")
     def test_WebinarUpcomingTab(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -433,16 +416,13 @@ class Test_Webinar:
         self.logger.info("****** TC_22	Verify Delete Training/Webinar option in 3dot button *****")
         self.wp.DeleteSession()
         self.wp.DeleteWebinar()
-        self.driver.close()
+
 
         # Training Session________________________________Training Session
 
-    @pytest.mark.run(order=7)
+    @pytest.mark.run(order=92)
     # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingCreation(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -502,7 +482,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingCreation.png")
             assert False
         # time.sleep(2)
         #
@@ -518,12 +498,9 @@ class Test_Webinar:
         #     # assert False
         # time.sleep(2)
 
-    @pytest.mark.run(order=8)
+    @pytest.mark.run(order=93)
     # @pytest.mark.skip(reason="skipping this test")
     def test_EmployeeBookSeat(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -550,7 +527,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
         self.wp.CloseToaster()
@@ -579,7 +556,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         time.sleep(1)
@@ -609,20 +586,17 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
-        self.driver.close()
+
 
         # Training upcoming tab-------------------------------------Training upcoming tab
 
-    @pytest.mark.run(order=9)
+    @pytest.mark.run(order=94)
     # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingUpcoming(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -656,15 +630,20 @@ class Test_Webinar:
         self.logger.info("****** TC_22	Verify Delete Training/Webinar option in 3dot button*****")
         self.wp.DeleteSession()
         self.wp.DeleteWebinar()
-        self.driver.close()
+        time.sleep(2)
+
+        if "Training deleted successfully" in self.driver.page_source:
+            self.logger.info("********* test_TrainingPastTab is passed ***********")
+        else:
+            self.logger.info("********* test_TrainingPastTab is failed ***********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingUpcoming.png")
+            self.logger.error("Page source:\n%s" % self.driver.page_source)
+            assert False
 
     # Training Past tab_______________________________________Training Past tab
-    @pytest.mark.run(order=10)
+    @pytest.mark.run(order=95)
     @pytest.mark.skip(reason="skipping this test")
     def test_TrainingPastTab(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -687,7 +666,7 @@ class Test_Webinar:
             self.logger.info("********* test_TrainingPastTab is passed ***********")
         else:
             self.logger.info("********* test_TrainingPastTab is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_TrainingPastTab.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingPastTab.png")
             self.logger.error("Page source:\n%s" % self.driver.page_source)
             assert False
         time.sleep(2)
@@ -697,7 +676,9 @@ class Test_Webinar:
         self.wp.CloseChatHistrory()
         self.wp.PastSessionBreadcrumb()
         time.sleep(2)
-        self.driver.close()
+
+
+
 
 
 

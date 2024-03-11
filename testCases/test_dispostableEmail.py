@@ -224,7 +224,7 @@ class TestSignUpEmailTry(unittest.TestCase):
             self.logger.info("********* Create Department Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createDept.png")
             self.logger.error("********* Create Department Test is Failed ***********")
             self.driver.close()
             assert False
@@ -241,7 +241,7 @@ class TestSignUpEmailTry(unittest.TestCase):
             self.logger.info("********* Create Division Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createDivi.png")
             self.logger.error("********* Create Division Test is Failed ***********")
             self.driver.close()
             assert False
@@ -257,7 +257,7 @@ class TestSignUpEmailTry(unittest.TestCase):
             assert True
             self.logger.info("********* Create Designation Test is Passed ***********")
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createDesi.png")
             self.logger.error("********* Create Designation Test is Failed ***********")
             self.driver.close()
             assert False
@@ -280,7 +280,7 @@ class TestSignUpEmailTry(unittest.TestCase):
             self.logger.info("********* Employee creation Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createemp.png")
             self.logger.error("********* Employee creation Test is Failed ***********")
             self.driver.close()
             assert False

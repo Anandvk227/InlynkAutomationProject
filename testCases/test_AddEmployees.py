@@ -95,12 +95,12 @@ class addEmployees(BaseClass):
         )
 
         if element:
-            self.logger.info(f"Found Employee name : {element.text}")
+            self.logger.info(f"Found company name : {element.text}")
             assert True
             # self.driver.quit()
         else:
-            self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\Screenshots\\" + "AdminSignedUpEmployeeWithDomain.png")
+            self.logger.info(f"company name not found: {element.text}")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createEmployee_superAdmin.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -118,12 +118,12 @@ class addEmployees(BaseClass):
         )
 
         if element:
-            self.logger.info(f"Found Employee name : {element.text}")
+            self.logger.info(f"Found company name : {element.text}")
             assert True
             # self.driver.quit()
         else:
-            self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "AdminSignedUpEmployeeWithDomain.png")
+            self.logger.info(f"company name not found: {element.text}")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createEmployee_superAdmin.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -147,7 +147,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "AdminSignedUpEmployeeWithDomain.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createEmployee_superAdmin.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -171,12 +171,12 @@ class addEmployees(BaseClass):
         )
 
         if element:
-            self.logger.info(f"Found Employee name : {element.text}")
+            self.logger.info(f"Found company name : {element.text}")
             assert True
             # self.driver.quit()
         else:
-            self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createEmployee_superAdmin.png")
+            self.logger.info(f"company name not found: {element.text}")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createEmployee_superAdmin.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -259,7 +259,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -285,7 +285,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             self.driver.close()
             assert False
 
@@ -307,7 +307,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -328,7 +328,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -352,7 +352,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -365,7 +365,7 @@ class addEmployees(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** Acronym creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAndRole.png")
             assert False
 
     @pytest.mark.run(order=13)
@@ -445,7 +445,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAdminRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -469,7 +469,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAdminRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -491,7 +491,7 @@ class addEmployees(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Employee_StatusAdminRole.png")
             self.driver.close()
             self.driver.quit()
             assert False
