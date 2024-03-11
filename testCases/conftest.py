@@ -27,6 +27,7 @@ def pytest_configure(config):
         'Tester': 'Anand'
     }
 
+
 @pytest.fixture()
 def run_number(request):
     return request.param

@@ -11,9 +11,10 @@ from pageObjects.randomGen import randomGen
 from sunithaPageObjects.WebinarPage import WebinarPage
 from utilities.customLogger import LogGen
 from utilities.readProperties import ReadConfig
+from GenericLib.BaseClass import BaseClass
 
 
-class Test_Webinar:
+class Test_Webinar(BaseClass):
     workbook = load_workbook("TestData/LoginData.xlsx")
 
     # Access the active worksheet
@@ -58,12 +59,9 @@ class Test_Webinar:
     shareholderPassword = "Inlink@123"
     workbook.close()
 
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=86)
     # @pytest.mark.skip(reason="skipping this test")
     def test_webinar(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.logger.info("****** Login verification *****")
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
@@ -147,13 +145,11 @@ class Test_Webinar:
         # time.sleep(2)
         self.driver.close()
 
-    @pytest.mark.run(order=2)
+    @pytest.mark.run(order=87)
     # @pytest.mark.suni
     @pytest.mark.skip(reason="skipping this test")
     def test_EmployeeBookSeat(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
+
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -257,14 +253,10 @@ class Test_Webinar:
         self.driver.close()
 
     # Webinar Past tab -------------------------------------------Webinar Past tab
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=88)
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastTabsSessionVerification(self):
-        # login code
-        self.driver = webdriver.Chrome()
 
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -304,13 +296,10 @@ class Test_Webinar:
         self.driver.close()
 
     # webinar past session search bar----------------------------webinar past session search bar
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=89)
     @pytest.mark.sunitha
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastSessionCardSearch(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -343,12 +332,9 @@ class Test_Webinar:
 
         # Webinar past tab filter-------------------------------Webinar past tab filter
 
-    @pytest.mark.run(order=5)
+    @pytest.mark.run(order=90)
     # @pytest.mark.skip(reason="skipping this test")
     def test_PastTabFilter(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -378,12 +364,9 @@ class Test_Webinar:
 
         # webinar upcoming tab------------------------------------------webinar upcoming tab
 
-    @pytest.mark.run(order=6)
+    @pytest.mark.run(order=91)
     # @pytest.mark.skip(reason="skipping this test")
     def test_WebinarUpcomingTab(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -437,12 +420,9 @@ class Test_Webinar:
 
         # Training Session________________________________Training Session
 
-    @pytest.mark.run(order=7)
+    @pytest.mark.run(order=92)
     # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingCreation(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -518,12 +498,9 @@ class Test_Webinar:
         #     # assert False
         # time.sleep(2)
 
-    @pytest.mark.run(order=8)
+    @pytest.mark.run(order=93)
     # @pytest.mark.skip(reason="skipping this test")
     def test_EmployeeBookSeat(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
@@ -616,13 +593,10 @@ class Test_Webinar:
 
         # Training upcoming tab-------------------------------------Training upcoming tab
 
-    @pytest.mark.run(order=9)
+    @pytest.mark.run(order=94)
     # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingUpcoming(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -659,12 +633,9 @@ class Test_Webinar:
         self.driver.close()
 
     # Training Past tab_______________________________________Training Past tab
-    @pytest.mark.run(order=10)
+    @pytest.mark.run(order=95)
     @pytest.mark.skip(reason="skipping this test")
     def test_TrainingPastTab(self):
-        self.driver = webdriver.Chrome()
-        # self.driver = setup()
-        self.driver.maximize_window()
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)

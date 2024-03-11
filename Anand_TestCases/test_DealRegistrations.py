@@ -11,10 +11,11 @@ from Anand_PageObjects.DealRegistration import dealregistration
 from pageObjects.randomGen import randomGen
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from GenericLib.BaseClass import BaseClass
 
 
 
-class Test_Create_DealwithNetworkCompany:
+class Test_Create_DealwithNetworkCompany(BaseClass):
     baseURL = ReadConfig.getApplicationURL()
     workbook = load_workbook("TestData/LoginData.xlsx")
     deptname = randomGen.random_first_name()
@@ -67,11 +68,8 @@ class Test_Create_DealwithNetworkCompany:
 
     # @pytest.mark.anand
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Create_Approve_Relation_Company(self,setup):
+    def test_deal_Create_Approve_Relation_Company(self):
         self.logger.info("****TC_1 Verify the OEM Company Create The Deal and Approve by partner company****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -195,11 +193,8 @@ class Test_Create_DealwithNetworkCompany:
             assert False
 
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Create_Reject_Relation_Company(self,setup):
+    def test_deal_Create_Reject_Relation_Company(self):
         self.logger.info("****TC_02 Verify the OEM Company Create The Deal and reject the deal by partner company****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -323,11 +318,8 @@ class Test_Create_DealwithNetworkCompany:
 
 
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Create_Edit_Approve_Through_Notification(self, setup):
+    def test_deal_Create_Edit_Approve_Through_Notification(self):
         self.logger.info("****TC_03 Create a Deal with OEM Company and Approve the Deal through Notification ****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -424,11 +416,8 @@ class Test_Create_DealwithNetworkCompany:
         time.sleep(1)
 
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Reject_Through_Notification(self, setup):
+    def test_deal_Reject_Through_Notification(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -499,11 +488,8 @@ class Test_Create_DealwithNetworkCompany:
         time.sleep(3)
 
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager(self,setup):
+    def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -570,11 +556,8 @@ class Test_Create_DealwithNetworkCompany:
         time.sleep(2)
 
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager_Verify_My_Deals(self, setup):
+    def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager_Verify_My_Deals(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)

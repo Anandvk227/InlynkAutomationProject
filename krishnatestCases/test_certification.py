@@ -15,8 +15,9 @@ from krishnapageObjects.CertificationPage import Certification
 from pageObjects.randomGen import randomGen
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from GenericLib.BaseClass import BaseClass
 
-class Test_001_Certification:
+class Test_Certification(BaseClass):
     baseURL = ReadConfig.getApplicationURL()
     # username = ReadConfig.getUseremail()
     # usernames4 = ReadConfig.getuseremails4()
@@ -68,14 +69,10 @@ class Test_001_Certification:
 
     @pytest.mark.babi
     @pytest.mark.regression
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=71)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_certificationcreatingeditinganddeleting(self, setup):
+    def test_certificationcreatingeditinganddeleting(self):
         self.logger.info("************* Test_001_Certification **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -335,14 +332,10 @@ class Test_001_Certification:
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=2)
+    @pytest.mark.run(order=72)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_certificationcreating(self, setup):
+    def test_certificationcreating(self):
         self.logger.info("************* Test_001_Certification **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -550,14 +543,10 @@ class Test_001_Certification:
 
     @pytest.mark.sani
     @pytest.mark.regression
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=73)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_certificationverificationforrelationcompany(self, setup):
+    def test_certificationverificationforrelationcompany(self):
         self.logger.info("************* Test_003_Certification **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.usernames4)
         self.lp.setPassword(self.password)
@@ -603,14 +592,10 @@ class Test_001_Certification:
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=74)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_certificationverificationforremployee(self, setup):
+    def test_certificationverificationforremployee(self):
         self.logger.info("************* Test_004_Certification **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.usernames5)
         self.lp.setPassword(self.password)
