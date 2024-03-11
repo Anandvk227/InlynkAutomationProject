@@ -420,4 +420,7 @@ class TestCompanyProfile(BaseClass):
         self.logger.info("****** TC_24	verify the news feed by clicking on that  *****")
         self.lp.NewsFeed()
 
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
+
 

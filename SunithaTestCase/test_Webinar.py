@@ -143,7 +143,7 @@ class Test_Webinar(BaseClass):
         #     self.logger.error("Page source:\n%s" % self.driver.page_source)
         #     assert False
         # time.sleep(2)
-        self.driver.close()
+
 
     @pytest.mark.run(order=87)
     # @pytest.mark.suni
@@ -250,7 +250,7 @@ class Test_Webinar(BaseClass):
             self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
-        self.driver.close()
+
 
     # Webinar Past tab -------------------------------------------Webinar Past tab
     @pytest.mark.run(order=88)
@@ -293,7 +293,7 @@ class Test_Webinar(BaseClass):
 
         self.wp.ClosePollHistory()
         self.wp.PastSessionBreadcrumb()
-        self.driver.close()
+
 
     # webinar past session search bar----------------------------webinar past session search bar
     @pytest.mark.run(order=89)
@@ -328,7 +328,7 @@ class Test_Webinar(BaseClass):
 
         self.wp.SessionCard()
         self.wp.SessionCardClose()
-        self.driver.close()
+
 
         # Webinar past tab filter-------------------------------Webinar past tab filter
 
@@ -360,7 +360,7 @@ class Test_Webinar(BaseClass):
         self.wp.TrainingCheckBox()
         self.wp.WebinarCheckbox()
         self.wp.ApplyButton()
-        self.driver.close()
+
 
         # webinar upcoming tab------------------------------------------webinar upcoming tab
 
@@ -416,7 +416,7 @@ class Test_Webinar(BaseClass):
         self.logger.info("****** TC_22	Verify Delete Training/Webinar option in 3dot button *****")
         self.wp.DeleteSession()
         self.wp.DeleteWebinar()
-        self.driver.close()
+
 
         # Training Session________________________________Training Session
 
@@ -589,7 +589,7 @@ class Test_Webinar(BaseClass):
             self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
-        self.driver.close()
+
 
         # Training upcoming tab-------------------------------------Training upcoming tab
 
@@ -630,7 +630,15 @@ class Test_Webinar(BaseClass):
         self.logger.info("****** TC_22	Verify Delete Training/Webinar option in 3dot button*****")
         self.wp.DeleteSession()
         self.wp.DeleteWebinar()
-        self.driver.close()
+        time.sleep(2)
+
+        if "Training deleted successfully" in self.driver.page_source:
+            self.logger.info("********* test_TrainingPastTab is passed ***********")
+        else:
+            self.logger.info("********* test_TrainingPastTab is failed ***********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingUpcoming.png")
+            self.logger.error("Page source:\n%s" % self.driver.page_source)
+            assert False
 
     # Training Past tab_______________________________________Training Past tab
     @pytest.mark.run(order=95)
@@ -668,7 +676,9 @@ class Test_Webinar(BaseClass):
         self.wp.CloseChatHistrory()
         self.wp.PastSessionBreadcrumb()
         time.sleep(2)
-        self.driver.close()
+
+
+
 
 
 

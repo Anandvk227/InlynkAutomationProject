@@ -710,5 +710,8 @@ class Test_Create_DealwithNetworkCompany(BaseClass):
         self.deal.myexpiredeals()
         time.sleep(3)
 
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
+
 
 

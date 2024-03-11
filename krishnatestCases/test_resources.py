@@ -1506,6 +1506,10 @@ class Test_Resources(BaseClass):
             assert False
 
 
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
+
+
 
 
 

@@ -446,3 +446,6 @@ class TestMyProfile(BaseClass):
             self.logger.info(f"Text Not Found")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_SocialMediaLinks.png")
             assert False
+
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)

@@ -538,3 +538,6 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.clickdownloadrecog()
         self.rcp.selectdownloadtype()
         time.sleep(6)
+
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
