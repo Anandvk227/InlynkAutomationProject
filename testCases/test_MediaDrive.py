@@ -45,7 +45,7 @@ class TestMediaDrive(BaseClass):
     logger = LogGen.loggen()
 
     @pytest.mark.regression
-    # @pytest.mark.test
+    @pytest.mark.tests
     # @pytest.mark.skip("created a common method")
     @pytest.mark.run(order=1)
     def test_MediaDrive(self):

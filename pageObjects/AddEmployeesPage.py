@@ -39,6 +39,17 @@ class AddEmployeesPage:
     buttonDeactivate_xpath = "//span[text()='Deactivate']"
     text_reason_xpath = "//input[@type='text']"
     confDeactivate_xpath = "//button[text()='Deactivate']"
+    # Invitee feature
+    button_invite_xpath = "//button[text()='Invite']"
+    DD_Company_xpath = "//div[text()='Company']"
+    select_company_xpath = "//li[@data-value='company']"
+    select_employee_xpath = "//li[@data-value='employee']"
+    button_Copy_xpath = "//button[text()='Copy']"
+    button_email_xpath = "//input[@type='email']"
+    button_submit_xpath = "//button[@type='submit']"
+    button_Send_xpath = "//button[text()='Send']"
+
+
 
 
     def __init__(self, driver):
@@ -200,3 +211,45 @@ class AddEmployeesPage:
         actions.send_keys(Keys.DOWN)
         actions.send_keys(Keys.ENTER)
         actions.perform()
+
+    # Invite
+
+    def ClickcInviteButton(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_invite_xpath)))
+        element.click()
+
+    def ClickDDcompany(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.DD_Company_xpath)))
+        element.click()
+
+    def selctCompany(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.select_company_xpath)))
+        element.click()
+
+    def selctEmployee(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.select_employee_xpath)))
+        element.click()
+
+    def ClickcCopyButton(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_Copy_xpath)))
+        element.click()
+
+    def setInviteEmail(self, name):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_email_xpath)))
+        element.send_keys(name)
+
+    def ClickcSubmitButton(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_submit_xpath)))
+        element.click()
+
+    def ClickcSendButton(self):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_Send_xpath)))
+        element.click()
