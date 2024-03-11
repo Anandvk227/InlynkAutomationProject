@@ -133,7 +133,7 @@ class TestNetworks(BaseClass):
             self.logger.info("********* Company Connection rejected Successfully ***********")
             # self.driver.close()
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "connection_reject_fail.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "connection_reject_fail.png")
             self.logger.error("********* Company reject fail ***********")
             # self.driver.close()
             assert False
@@ -285,7 +285,7 @@ class TestNetworks(BaseClass):
 
             except TimeoutException:
                 self.logger.info(f"Error text not found within the specified time: {text}")
-                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsManufacturer.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsPartner.png")
                 assert False
 
         self.np.clickOKButton()
@@ -333,7 +333,7 @@ class TestNetworks(BaseClass):
 
             except TimeoutException:
                 self.logger.info(f"Error text not found within the specified time: {text}")
-                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsManufacturer.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsPartner.png")
                 assert False
 
     @pytest.mark.run(order=27)
@@ -391,7 +391,7 @@ class TestNetworks(BaseClass):
 
             except TimeoutException:
                 self.logger.info(f"Error text not found within the specified time: {text}")
-                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsManufacturer.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsShareHolder.png")
                 assert False
 
         self.np.clickOKButton()
@@ -439,7 +439,7 @@ class TestNetworks(BaseClass):
 
             except TimeoutException:
                 self.logger.info(f"Error text not found within the specified time: {text}")
-                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsManufacturer.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_ConnectionCompanyAsShareHolder.png")
                 assert False
 
 
@@ -487,7 +487,7 @@ class TestNetworks(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** following company is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_follow_and_unfollow_company.png")
             assert False
         self.lp.clickLogout()
         self.logger.info("******** Entering Requested company credentials for Network Connection ***********")
@@ -519,7 +519,7 @@ class TestNetworks(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** following company is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_follow_and_unfollow_company.png")
             assert False
         self.lp.clickLogout()
         self.logger.info(
@@ -549,7 +549,7 @@ class TestNetworks(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** following company is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_follow_and_unfollow_company.png")
             assert False
         time.sleep(2)
         self.np.clickFollowingButton()
@@ -607,7 +607,7 @@ class TestNetworks(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** following company is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_block_and_unblock_the_followed_company.png")
             assert False
         self.lp.clickLogout()
         self.logger.info("******** Entering Requested company credentials for Network Connection ***********")
@@ -649,7 +649,7 @@ class TestNetworks(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot("\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot("\\Screenshots\\" + "test_block_and_unblock_the_followed_company.png")
             assert False
 
         self.np.clickBlocklistTab()
@@ -671,7 +671,7 @@ class TestNetworks(BaseClass):
         else:
             # Log and take a screenshot
             self.logger.error("************** following company is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "following_failed.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_block_and_unblock_the_followed_company.png")
             assert False
 
 

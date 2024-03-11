@@ -131,7 +131,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_webinar.png")
             assert False
 
         # time.sleep(3)
@@ -181,7 +181,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         # time.sleep(2)
@@ -221,7 +221,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         time.sleep(1)
@@ -251,7 +251,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
         self.driver.close()
@@ -295,7 +295,7 @@ class Test_Webinar:
 
         else:
             self.logger.info("********* test_PastTabsSessionVerification is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_PastTabsSessionVerification.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_PastTabsSessionVerification.png")
             # self.driver.close()
             assert False
 
@@ -333,7 +333,7 @@ class Test_Webinar:
 
         else:
             self.logger.error("********* test_PastSessionCardSearch Test is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_PastSessionCardSearch.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_PastSessionCardSearch.png")
             self.logger.error("Page source:\n%s" % self.driver.page_source)
             assert False
 
@@ -502,7 +502,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingCreation.png")
             assert False
         # time.sleep(2)
         #
@@ -550,7 +550,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
         self.wp.CloseToaster()
@@ -579,7 +579,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
 
         time.sleep(1)
@@ -609,7 +609,7 @@ class Test_Webinar:
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeBookSeat.png")
             assert False
         time.sleep(1)
         self.driver.close()
@@ -687,7 +687,7 @@ class Test_Webinar:
             self.logger.info("********* test_TrainingPastTab is passed ***********")
         else:
             self.logger.info("********* test_TrainingPastTab is failed ***********")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_TrainingPastTab.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingPastTab.png")
             self.logger.error("Page source:\n%s" % self.driver.page_source)
             assert False
         time.sleep(2)

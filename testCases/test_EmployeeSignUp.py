@@ -284,7 +284,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Toast Message not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_ApproveSignedUpEmployee.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -305,7 +305,7 @@ class TestEmployeeSignUp(BaseClass):
 
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_ApproveSignedUpEmployee.png")
             self.driver.close()
             assert False
 
@@ -468,7 +468,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Toast Message not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_EmployeeSignUpValidWithoutDomainAdmin.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeSignUpValidWithoutDomainAdmin.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -489,7 +489,7 @@ class TestEmployeeSignUp(BaseClass):
 
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeSignUpValidWithoutDomainAdmin.png")
             # self.driver.close()
             assert False
         element.click()
@@ -510,7 +510,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "AdminSignedUpEmployeeWithDomain.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EmployeeSignUpValidWithoutDomainAdmin.png")
             # self.driver.close()
             # self.driver.quit()
             assert False
@@ -557,7 +557,7 @@ class TestEmployeeSignUp(BaseClass):
 
             else:
                 self.logger.info(f"Toast Message not found: {text}")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_RejectSignedUpEmployee.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_RejectSignedUpEmployee.png")
                 # self.logger.error("********* Validation of Error message with invalid data test is Failed ***********")
                 # self.driver.close()
                 assert False
@@ -576,7 +576,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee_Valid_Data.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_RejectSignedUpEmployee.png")
             self.driver.close()
             assert False
 
@@ -754,7 +754,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_ActiveSignedUpEmployeeWithDomain.png")
             self.driver.close()
             assert False
 
@@ -796,7 +796,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_AdminSignedUpEmployeeWithDomain.png")
             self.driver.close()
             assert False
 
@@ -823,7 +823,7 @@ class TestEmployeeSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "AdminSignedUpEmployeeWithDomain.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_AdminSignedUpEmployeeWithDomain.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -853,7 +853,7 @@ class TestEmployeeSignUp(BaseClass):
 
         else:
             self.logger.info(f"Employee Role not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "VerifyAdminRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "VerifyAdminRole.png")
             self.driver.close()
             self.driver.quit()
             assert False

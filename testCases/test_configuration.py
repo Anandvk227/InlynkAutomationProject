@@ -246,7 +246,7 @@ class TestConfiguration(BaseClass):
             assert True
             self.logger.info("********* Delete Division Test is Passed ***********")
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_DeleteDivision.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_DeleteDivision.png")
             self.logger.error("********* Delete Division Test is Failed ***********")
 
             assert False
@@ -265,7 +265,7 @@ class TestConfiguration(BaseClass):
             assert True
             self.logger.info("********* Delete Designation Test is Passed ***********")
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_DeleteDesignation.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_DeleteDesignation.png")
             self.logger.error("********* Delete Designation Test is Failed ***********")
             assert False
 
@@ -288,7 +288,7 @@ class TestConfiguration(BaseClass):
             assert True
             self.logger.info("********* Delete Department Test is Passed ***********")
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_DeleteDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_DeleteDept.png")
             self.logger.error("********* Delete Department Test is Failed ***********")
             assert False
 

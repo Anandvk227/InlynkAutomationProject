@@ -177,7 +177,7 @@ class TestSignUp(BaseClass):
             self.logger.info("********* SignUp Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_SignUpwithValid.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_SignUpwithValid.png")
             self.logger.error("********* SignUp Test is Failed ***********")
             self.driver.close()
             assert False
@@ -220,7 +220,7 @@ class TestSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_ListingSignUpCompany.png")
             self.driver.close()
             self.driver.quit()
             assert False
@@ -243,7 +243,7 @@ class TestSignUp(BaseClass):
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_Employee_StatusAndRole.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_ListingSignUpCompany.png")
             self.driver.close()
             self.driver.quit()
             assert False

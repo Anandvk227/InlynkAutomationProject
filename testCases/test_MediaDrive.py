@@ -97,7 +97,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveCreationAndUpload.png")
             assert False
 
         self.md.clickClosetoaster()
@@ -139,7 +139,7 @@ class TestMediaDrive(BaseClass):
 
             except TimeoutException:
                 self.logger.info("Pop-up or Success Message Not Found")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveCreationAndUpload.png")
                 assert False
 
         # # Upload folder
@@ -202,7 +202,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveSearchViewFilter.png")
             assert False
 
         self.md.clickClosetoaster()
@@ -243,7 +243,7 @@ class TestMediaDrive(BaseClass):
 
             except TimeoutException:
                 self.logger.info("Pop-up or Success Message Not Found")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveSearchViewFilter.png")
                 assert False
 
 
@@ -303,7 +303,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveshare.png")
             assert False
 
         self.md.clickClosetoaster()
@@ -344,7 +344,7 @@ class TestMediaDrive(BaseClass):
 
             except TimeoutException:
                 self.logger.info("Pop-up or Success Message Not Found")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveshare.png")
                 assert False
 
         self.md.setSearchField(self.first_name2)
@@ -363,7 +363,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveshare.png")
             assert False
 
         self.lp.clickLogout()
@@ -406,7 +406,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveshare.png")
             assert False
         self.lp.clickLogout()
         self.logger.info("****Started Login Test****")
@@ -446,7 +446,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveMoveTo.png")
             assert False
 
         self.md.clickClosetoaster()
@@ -487,7 +487,7 @@ class TestMediaDrive(BaseClass):
 
             except TimeoutException:
                 self.logger.info("Pop-up or Success Message Not Found")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveMoveTo.png")
                 assert False
 
         self.md.setSearchField(self.searchFile)
@@ -511,7 +511,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveMoveTo.png")
             assert False
         # self.md.clickClosetoaster()
         element = WebDriverWait(self.driver, 10).until(
@@ -578,7 +578,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveEditZipDownloadTrash.png")
             assert False
         self.md.clickClosetoaster()
         self.md.ClickcloseFile()
@@ -597,7 +597,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveEditZipDownloadTrash.png")
             assert False
 
     @pytest.mark.regression
@@ -621,7 +621,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashRestoreAndDelete.png")
             assert False
 
         self.md.setSearchField(self.first_name5)
@@ -639,7 +639,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashRestoreAndDelete.png")
             assert False
         self.md.clickClosetoaster()
         self.md.clickTabTrash()
@@ -658,7 +658,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashRestoreAndDelete.png")
             assert False
 
         self.md.clickTabMyFiles()
@@ -678,7 +678,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashRestoreAndDelete.png")
             assert False
         self.md.clickClosetoaster()
         self.md.clickTabTrash()
@@ -698,7 +698,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashRestoreAndDelete.png")
             assert False
 
 
@@ -722,7 +722,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashAll.png")
             assert False
         self.md.clickTabTrash()
         self.md.clickSelectAllCheckBox()
@@ -740,7 +740,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashAll.png")
             assert False
 
     @pytest.mark.test
@@ -767,7 +767,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveEmployeeCreateMedia.png")
             assert False
 
         self.md.clickClosetoaster()
@@ -815,7 +815,7 @@ class TestMediaDrive(BaseClass):
 
             except TimeoutException:
                 self.logger.info("Pop-up or Success Message Not Found")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveEmployeeCreateMedia.png")
                 assert False
 
 
@@ -853,7 +853,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrashEmployeeMedia.png")
             assert False
 
         self.lp.clickLogout()
@@ -873,7 +873,7 @@ class TestMediaDrive(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrashEmployeeMedia.png")
             assert False
 
 

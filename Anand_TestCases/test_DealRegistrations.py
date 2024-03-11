@@ -65,7 +65,9 @@ class Test_Create_DealwithNetworkCompany:
 
     logger=LogGen.loggen()
 
-    # @pytest.mark.anand
+    @pytest.mark.regression
+    @pytest.mark.run(order=75)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="skipping this Test")
     def test_deal_Create_Approve_Relation_Company(self,setup):
         self.logger.info("****TC_1 Verify the OEM Company Create The Deal and Approve by partner company****")
@@ -195,6 +197,9 @@ class Test_Create_DealwithNetworkCompany:
             assert False
 
     # @pytest.mark.skip(reason="skipping this Test")
+    @pytest.mark.regression
+    @pytest.mark.run(order=76)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     def test_deal_Create_Reject_Relation_Company(self,setup):
         self.logger.info("****TC_02 Verify the OEM Company Create The Deal and reject the deal by partner company****")
         self.driver = setup
@@ -323,6 +328,9 @@ class Test_Create_DealwithNetworkCompany:
 
 
     # @pytest.mark.skip(reason="skipping this Test")
+    @pytest.mark.regression
+    @pytest.mark.run(order=77)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     def test_deal_Create_Edit_Approve_Through_Notification(self, setup):
         self.logger.info("****TC_03 Create a Deal with OEM Company and Approve the Deal through Notification ****")
         self.driver = setup
@@ -411,7 +419,7 @@ class Test_Create_DealwithNetworkCompany:
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Create_Edit_Approve_Through_Notification.png")
             self.driver.close()
             assert False
 
@@ -424,6 +432,9 @@ class Test_Create_DealwithNetworkCompany:
         time.sleep(1)
 
     # @pytest.mark.skip(reason="skipping this Test")
+    @pytest.mark.regression
+    @pytest.mark.run(order=78)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     def test_deal_Reject_Through_Notification(self, setup):
         self.logger.info("****Started Login Test****")
         self.driver = setup
@@ -483,7 +494,7 @@ class Test_Create_DealwithNetworkCompany:
             # self.driver.quit()
         else:
             self.logger.info(f"Employee name not found: {element.text}")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_ApproveSignedUpEmployee.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Reject_Through_Notification.png")
             self.driver.close()
             assert False
         element.click()
@@ -499,6 +510,9 @@ class Test_Create_DealwithNetworkCompany:
         time.sleep(3)
 
     # @pytest.mark.skip(reason="skipping this Test")
+    @pytest.mark.regression
+    @pytest.mark.run(order=79)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager(self,setup):
         self.logger.info("****Started Login Test****")
         self.driver = setup
@@ -555,7 +569,16 @@ class Test_Create_DealwithNetworkCompany:
         self.deal.statusdropdown()
         self.deal.approved()
         self.deal.confirmtoapprove()
-        time.sleep(1)
+        time.sleep(3)
+        if "Deal Approved Successfully" in self.driver.page_source:
+            self.logger.info("********** Deal approve test is passed *********")
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** Deal approve test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_dealapprove.png")
+            assert False
+        time.sleep(3)
         self.deal.closeapprovedtab()
         self.lp.clickLogout()
         self.lp.setUserName(self.username2)
@@ -567,9 +590,22 @@ class Test_Create_DealwithNetworkCompany:
         self.deal.dealcompany()
         self.deal.clickonactivedeals()
         self.deal.selectnewdeal()
-        time.sleep(2)
+        time.sleep(3)
+        if "Deal Opportunity Details" in self.driver.page_source:
+            self.logger.info("********** Deal details test is passed *********")
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** Deal details test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager.png")
+            assert False
+        time.sleep(3)
 
     # @pytest.mark.skip(reason="skipping this Test")
+    @pytest.mark.regression
+    @pytest.mark.pspk
+    @pytest.mark.run(order=80)
+    @pytest.mark.flaky(reruns=3, reruns_delay=2)
     def test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager_Verify_My_Deals(self, setup):
         self.logger.info("****Started Login Test****")
         self.driver = setup
@@ -629,7 +665,16 @@ class Test_Create_DealwithNetworkCompany:
         self.deal.statusdropdown()
         self.deal.approved()
         self.deal.confirmtoapprove()
-        time.sleep(1)
+        time.sleep(3)
+        if "Deal Approved Successfully" in self.driver.page_source:
+            self.logger.info("********** Deal approve test is passed *********")
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** Deal approve test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_dealapprove.png")
+            assert False
+        time.sleep(3)
         self.deal.closeapprovedtab()
         self.lp.clickLogout()
         self.lp.setUserName(self.username2)
@@ -659,6 +704,16 @@ class Test_Create_DealwithNetworkCompany:
         self.deal.backdealspage()
         self.deal.myrejectdeals()
         self.deal.selectnewdealtwo()
+        time.sleep(3)
+        if "Deal Opportunity Details" in self.driver.page_source:
+            self.logger.info("********** Deal details test is passed *********")
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** Deal details test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Create_Verify_Relation_Manager_and_Approve_Check_Relation_manager_Verify_My_Deals.png")
+            assert False
+        time.sleep(3)
         self.deal.backdealspage()
         self.deal.myexpiredeals()
         time.sleep(3)
