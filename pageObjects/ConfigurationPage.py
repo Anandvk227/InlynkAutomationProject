@@ -184,7 +184,7 @@ class ConfigurationPage:
 
     def clickDivisionsTab(self):
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.tab_Divisions_xpath)))
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, self.tab_Divisions_xpath)))
         element.click()
 
     def clickDesignationsTab(self):

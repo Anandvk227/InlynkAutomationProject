@@ -174,6 +174,7 @@ class dealregistration:
         self.driver.find_element(By.XPATH,self.radiobutton_enterprise_xpath).click()
 
     def accountmanager(self,nameofmanager):
+        time.sleep(2)
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.select_accountmanager_xpath)))
         element.send_keys(nameofmanager)
@@ -209,7 +210,7 @@ class dealregistration:
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_savedeal_xpath)))
         element.click()
-        time.sleep(2)
+        time.sleep(3)
     def okaybutton(self):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_clickonokay_xpath)))

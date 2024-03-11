@@ -14,9 +14,11 @@ from krishnapageObjects.ResourcesPage import Resources
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 from pageObjects.randomGen import randomGen
+from GenericLib.BaseClass import BaseClass
 
 
-class Test_001_Resources:
+
+class Test_Resources(BaseClass):
     baseURL = ReadConfig.getApplicationURL()
     # username = ReadConfig.getUseremail()
     password = ReadConfig.getPassword()
@@ -86,14 +88,11 @@ class Test_001_Resources:
     @pytest.mark.sahi
     @pytest.mark.krishna
     @pytest.mark.regression
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=64)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categorycreationforcompany(self, setup):
+    def test_categorycreationforcompany(self):
         self.logger.info("************* Test_001_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -280,7 +279,7 @@ class Test_001_Resources:
 
     @pytest.mark.sanity
     @pytest.mark.babi
-    @pytest.mark.run(order=2)
+    @pytest.mark.run(order=65)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforemployee(self, setup):
@@ -475,14 +474,11 @@ class Test_001_Resources:
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=66)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categorycreationforhierarchy(self, setup):
+    def test_categorycreationforhierarchy(self):
         self.logger.info("************* Test_003_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -695,14 +691,11 @@ class Test_001_Resources:
 
     @pytest.mark.sanity
     @pytest.mark.regression
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=67)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categorycreationforrelationcompany(self, setup):
+    def test_categorycreationforrelationcompany(self):
         self.logger.info("************* Test_004_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -897,14 +890,11 @@ class Test_001_Resources:
 
     @pytest.mark.sohl
     @pytest.mark.regression
-    @pytest.mark.run(order=5)
+    @pytest.mark.run(order=68)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categoryshare(self, setup):
+    def test_categoryshare(self):
         self.logger.info("************* Test_005_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -1155,14 +1145,11 @@ class Test_001_Resources:
 
     @pytest.mark.ishq
     @pytest.mark.regression
-    @pytest.mark.run(order=6)
+    @pytest.mark.run(order=69)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categoryedit(self, setup):
+    def test_categoryedit(self):
         self.logger.info("************* Test_006_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -1342,14 +1329,11 @@ class Test_001_Resources:
 
     @pytest.mark.Gang
     @pytest.mark.regression
-    @pytest.mark.run(order=7)
+    @pytest.mark.run(order=70)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categorydelete(self, setup):
+    def test_categorydelete(self):
         self.logger.info("************* Test_007_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)

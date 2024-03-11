@@ -76,7 +76,10 @@ class EmployeeModulePage:
 
     def ClickDivisionDD(self):
         time.sleep(2)
-        self.driver.find_element(By.XPATH, self.DD_division_xpath).click()
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.DD_division_xpath)))
+        element.click()
+        # self.driver.find_element(By.XPATH, self.DD_division_xpath).click()
 
     def ClickDesignationDD(self):
         time.sleep(2)

@@ -47,7 +47,7 @@ class TestMediaDrive(BaseClass):
     @pytest.mark.regression
     # @pytest.mark.test
     # @pytest.mark.skip("created a common method")
-    @pytest.mark.run(order=1)
+    @pytest.mark.run(order=96)
     def test_MediaDrive(self):
         self.logger.info("****Started Login Test****")
         self.lp = LoginPage(self.driver)
@@ -60,7 +60,7 @@ class TestMediaDrive(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.skip("created a common method")
-    @pytest.mark.run(order=2)
+    @pytest.mark.run(order=97)
     def test_MediaDriveVerify(self):
         self.test_MediaDrive()
 
@@ -79,7 +79,7 @@ class TestMediaDrive(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.skip
-    @pytest.mark.run(order=3)
+    @pytest.mark.run(order=98)
     def test_MediaDriveCreationAndUpload(self):
         self.test_MediaDrive()
         self.logger.info("****TC_02  verify New Button****")
@@ -185,7 +185,7 @@ class TestMediaDrive(BaseClass):
     @pytest.mark.regression
     # @pytest.mark.test
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
-    @pytest.mark.run(order=4)
+    @pytest.mark.run(order=99)
     def test_MediaDriveSearchViewFilter(self):
         self.test_MediaDrive()
         self.md.clickButtonNew()
@@ -286,7 +286,7 @@ class TestMediaDrive(BaseClass):
     @pytest.mark.regression
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # @pytest.mark.skip
-    @pytest.mark.run(order=5)
+    @pytest.mark.run(order=100)
     def test_MediaDriveshare(self):
         self.test_MediaDrive()
         self.md.clickButtonNew()
@@ -429,7 +429,7 @@ class TestMediaDrive(BaseClass):
     @pytest.mark.regression
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # @pytest.mark.skip
-    @pytest.mark.run(order=6)
+    @pytest.mark.run(order=101)
     def test_MediaDriveMoveTo(self):
         self.test_MediaDrive()
         self.md.clickButtonNew()
@@ -529,7 +529,7 @@ class TestMediaDrive(BaseClass):
     @pytest.mark.regression
     # @pytest.mark.test
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
-    @pytest.mark.run(order=7)
+    @pytest.mark.run(order=102)
     def test_MediaDriveEditZipDownloadTrash(self):
         self.test_MediaDrive()
         self.md.setSearchField(self.searchFile)
@@ -604,7 +604,7 @@ class TestMediaDrive(BaseClass):
     # @pytest.mark.skip
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # @pytest.mark.test
-    @pytest.mark.run(order=8)
+    @pytest.mark.run(order=103)
     def test_MediaDriveTrashRestoreAndDelete(self):
         self.test_MediaDrive()
         self.md.clickButtonNew()
@@ -706,7 +706,7 @@ class TestMediaDrive(BaseClass):
     # @pytest.mark.skip
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # @pytest.mark.test
-    @pytest.mark.run(order=9)
+    @pytest.mark.run(order=104)
     def test_MediaDriveTrashAll(self):
         self.test_MediaDrive()
         self.md.clickSelectAllCheckBox()
@@ -744,7 +744,7 @@ class TestMediaDrive(BaseClass):
             assert False
 
     @pytest.mark.test
-    @pytest.mark.run(order=10)
+    @pytest.mark.run(order=105)
     def test_MediaDriveEmployeeCreateMedia(self):
         self.logger.info("****Started Login Test****")
         self.lp = LoginPage(self.driver)
@@ -820,7 +820,7 @@ class TestMediaDrive(BaseClass):
 
 
     @pytest.mark.test
-    @pytest.mark.run(order=11)
+    @pytest.mark.run(order=106)
     def test_TrashEmployeeMedia(self):
         self.test_MediaDrive()
         self.md.clickTabEmployee()

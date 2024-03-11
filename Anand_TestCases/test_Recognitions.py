@@ -8,9 +8,10 @@ from pageObjects.LoginPage import LoginPage
 from utilities.customLogger import LogGen
 from utilities.readProperties import ReadConfig
 from Anand_PageObjects.RecognitionPage import Recognitions
+from GenericLib.BaseClass import BaseClass
 
 
-class Test_Create_Recognition:
+class Test_Create_Recognition(BaseClass):
     baseURL = ReadConfig.getApplicationURL()
 
     addemployee="Anand"
@@ -31,14 +32,12 @@ class Test_Create_Recognition:
 
     logger=LogGen.loggen()
 
+
     @pytest.mark.regression
     @pytest.mark.run(order=81)
     # @pytest.mark.skip(reason="skipping this Test")
-    def test_CreateRecognition_Verify_Employee_got_Recognition(self,setup):
+    def test_CreateRecognition_Verify_Employee_got_Recognition(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -76,6 +75,7 @@ class Test_Create_Recognition:
         time.sleep(2)
         if "Employee recognition has been successfully published" in self.driver.page_source:
             self.logger.info("********** Employee recognition published test is passed *********")
+            self.logger.info("********** content creation test is passed *********")
             print(self,'--self')
 
         else:
@@ -99,14 +99,13 @@ class Test_Create_Recognition:
         self.rcp.closepopup()
         self.lp.clickLogout()
 
+
     @pytest.mark.regression
     @pytest.mark.run(order=82)
     @pytest.mark.skip(reason="skipping this Test")
-    def test_UnpublishedRecognition_and_Verify_in_Employee_account(self,setup):
+    # @pytest.mark.skip(reason="skipping this Test")
+    def test_UnpublishedRecognition_and_Verify_in_Employee_account(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -157,6 +156,7 @@ class Test_Create_Recognition:
 
         if "Anand" in self.driver.page_source:
             self.logger.info("********** Employee verification test is passed *********")
+            self.logger.info("********** content creation test is passed *********")
 
         else:
         # Log and take a screenshot
@@ -178,15 +178,13 @@ class Test_Create_Recognition:
             assert False
         self.lp.clickLogout()
 
+
     @pytest.mark.regression
     @pytest.mark.run(order=83)
     @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.anand
-    def test_UnpublishedtoPublishRecognition(self, setup):
+    def test_UnpublishedtoPunlishRecognition(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -237,6 +235,7 @@ class Test_Create_Recognition:
 
         if "Anand" in self.driver.page_source:
             self.logger.info("********** Employee verification test is passed *********")
+            self.logger.info("********** content creation test is passed *********")
 
         else:
             # Log and take a screenshot
@@ -319,15 +318,14 @@ class Test_Create_Recognition:
         self.lp.clickLogout()
         time.sleep(2)
 
+
     @pytest.mark.regression
     @pytest.mark.run(order=84)
     @pytest.mark.skip(reason="skipping this Test")
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.pspk
-    def test_EditRecognition(self,setup):
+    def test_EditRecognition(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -378,6 +376,7 @@ class Test_Create_Recognition:
 
         if "Anand" in self.driver.page_source:
             self.logger.info("********** Employee verification test is passed *********")
+            self.logger.info("********** content creation test is passed *********")
 
         else:
             # Log and take a screenshot
@@ -469,14 +468,12 @@ class Test_Create_Recognition:
         time.sleep(3)
         self.lp.clickLogout()
 
+
     @pytest.mark.regression
     @pytest.mark.run(order=85)
     @pytest.mark.skip(reason="skipping this Test")
-    def test_CreateRecognition_Verify_Employee_got_Recognition_download_Recognition(self, setup):
+    def test_CreateRecognition_Verify_Employee_got_Recognition_download_Recognition(self):
         self.logger.info("****Started Login Test****")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
