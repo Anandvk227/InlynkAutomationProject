@@ -62,6 +62,9 @@ class NewsFeed:
     commentconfirmdelete_xpath = "//button[normalize-space()='Delete']"
     rolechange_xpath = "//div[@id='demo-multiple-name']"
     employeeselect_xpath = "//li[@data-value='true']"
+    search_xpath = "//input[@placeholder='Search All feeds...']"
+    like_xpath = "//span[text()='Like']"
+    dislike_xpath = "(//span[text()='Like'])[2]"
 
 
 
@@ -76,6 +79,19 @@ class NewsFeed:
 
     def clickonemployeeselect(self):
         self.driver.find_element(By.XPATH,self.employeeselect_xpath).click()
+
+    def setsearch(self,search):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.search_xpath).send_keys(search)
+        time.sleep(1)
+
+    def clickonlike(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.like_xpath).click()
+
+    def clickondislike(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.dislike_xpath).click()
 
 
     def clickOnwhat(self):
