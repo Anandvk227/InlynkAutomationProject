@@ -321,7 +321,7 @@ class Test_Certification(BaseClass):
         time.sleep(3)
         if "Acronym deleted successfully" in self.driver.page_source:
             self.logger.info("********** Acronym delete test is passed *********")
-            self.driver.close()
+
 
         else:
             # Log and take a screenshot
@@ -527,7 +527,7 @@ class Test_Certification(BaseClass):
         time.sleep(3)
         if "Updated and published successfully" in self.driver.page_source:
             self.logger.info("********** certification update test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -580,7 +580,7 @@ class Test_Certification(BaseClass):
         time.sleep(3)
         if "TAKE A TEST" in self.driver.page_source:
             self.logger.info("********** Exam verification test is passed *********")
-            self.driver.close()
+
 
         else:
             # Log and take a screenshot
@@ -628,7 +628,7 @@ class Test_Certification(BaseClass):
         time.sleep(3)
         if "TAKE A TEST" in self.driver.page_source:
             self.logger.info("********** Exam verification test is passed *********")
-            self.driver.close()
+
 
         else:
             # Log and take a screenshot

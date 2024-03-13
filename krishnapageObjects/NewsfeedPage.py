@@ -48,7 +48,7 @@ class NewsFeed:
     gmail_xpath = "//div[@class='flexCol fxdSocialMediaSlider slideIn']//div[7]//div[1]//div[1]//div[1]"
     comment_xpath = "(//span[text()='Comment'])[1]"
     commenttxtare_xpath = "//textarea[@id='outlined-basic']"
-    send_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation primaryBg brdrRadius50 imgAvatarSM css-191um2i']"
+    send_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation primaryBg brdrRadius50 imgAvatarSM css-191um2i']"
     cancelcmnt_xpath = "//div[@class='flexAutoRow pointer pdngRXS']"
     comments_xpath = "(//span[text()='Comment'])[2]"
     replycmnt_xpath = "//span[text()='Reply']"
@@ -375,7 +375,7 @@ class NewsFeed:
         self.driver.find_element(By.XPATH,self.commenttxtare_xpath).send_keys(commenttext)
 
     def clickonsend(self):
-        time.sleep(1)
+        time.sleep(2)
         self.driver.implicitly_wait(5)
         self.driver.find_element(By.XPATH,self.send_xpath).click()
 

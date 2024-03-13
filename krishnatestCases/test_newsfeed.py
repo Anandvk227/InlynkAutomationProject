@@ -1108,7 +1108,7 @@ class TestNewsFeed(BaseClass):
             self.driver.save_screenshot(".\\Screenshots\\" + "test_feedcomment.png")
             assert False
 
-    @pytest.mark.sanity
+    @pytest.mark.kri
     @pytest.mark.regression
     @pytest.mark.run(order=62)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
