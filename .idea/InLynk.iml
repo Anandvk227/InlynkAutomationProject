@@ -5,7 +5,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+<<<<<<< HEAD
+    <orderEntry type="jdk" jdkName="Python 3.12 (inlynk_web_QA_automation)" jdkType="Python SDK" />
+=======
     <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
+>>>>>>> ad9a7b3abbfc366026321937e085d450eb224ab5
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

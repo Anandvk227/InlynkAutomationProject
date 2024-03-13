@@ -55,7 +55,7 @@ class Test_016_ConfRelations:
             self.logger.info("********* Create Relation Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createRelations.png")
             self.logger.error("********* Create Relation Test is Failed ***********")
             self.driver.close()
             assert False
@@ -75,7 +75,7 @@ class Test_016_ConfRelations:
             self.logger.info("********* update Relation Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createRelations.png")
             self.logger.error("********* update Relation Test is Failed ***********")
             self.driver.close()
             assert False
@@ -92,7 +92,7 @@ class Test_016_ConfRelations:
             self.logger.info("********* Delete Relation Test is Passed ***********")
 
         else:
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_createDept.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_createRelations.png")
             self.logger.error("********* Delete Relation Test is Failed ***********")
             self.driver.close()
             assert False

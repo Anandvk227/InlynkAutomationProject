@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class Recognitions:
 
-    button_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[contains(@class,'flexCol resSideNav')]/ul[@class='flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollY']/div[1]/div[1]"
+    button_recognition_xpath="//span[normalize-space()='Recognition']"
     button_newrecognition_xpath="//div[@class='flexAutoRow pointer pdngLSM webSearch']"
     button_selecttemplate_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]"
     button_selectbadge_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/div[2]/div[1]/div[2]"
@@ -37,7 +37,6 @@ class Recognitions:
     click_back_recognition_xpath="//button[@class='flexInline slideBtns slideCloseBtn alignCntr justifyCntr']"
     click_download_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[@class=' innerMainCntnr sideNav']/div[@class='flexCol positionRelative']/div[@class='flexCol positionAbs profileDetailsBody alignCntr justifyCntr']/div[@class='flexCol profileChildCntr']/div[@class='flexCol mrgnVXS']/div[@class='flexCol pdngXS']/div[@class='flexCol whiteBg pdngSM brdrBlackSM brdrRadiusSM newsfeedShadow']/div[@class='flexWrap mrgnTSM']/div[1]/div[2]/div[2]/span[1]"
     select_type_to_download_xpath="//div[@id='account-menu']//li[1]"
-
 
 
 
@@ -180,9 +179,6 @@ class Recognitions:
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, self.select_type_to_download_xpath)))
         element.click()
-
-
-
 
 
 

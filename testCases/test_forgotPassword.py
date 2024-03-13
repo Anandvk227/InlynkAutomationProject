@@ -84,7 +84,7 @@ class TestForgotPassword(unittest.TestCase):
         else:
             # Log and take a screenshot
             self.logger.error("************** Verify the Forgot Password Functionality Test test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "TS_2_forgotPassword.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_forgotPasswordValid.png")
             assert False
 
 
@@ -108,5 +108,5 @@ class TestForgotPassword(unittest.TestCase):
         else:
             # Log and take a screenshot
             self.logger.error("************** Verify the Forgot Password Functionality Test test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "TS_2_forgotPassword.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_forgotPasswordInValid.png")
             assert False

@@ -282,11 +282,8 @@ class Test_Resources(BaseClass):
     @pytest.mark.run(order=65)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
-    def test_categorycreationforemployee(self, setup):
+    def test_categorycreationforemployee(self):
         self.logger.info("************* Test_002_categorycreation **********")
-        self.driver = setup
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.driver.implicitly_wait(20)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
@@ -1183,7 +1180,7 @@ class Test_Resources(BaseClass):
         #     self.logger.info("********* category creation Test is Passed ***********")
         #
         # else:
-        #     self.driver.save_screenshot(".\\ScreenShots\\" + "test_resources1.png")
+        #     self.driver.save_screenshot(".\\Screenshots\\" + "test_resources1.png")
         #     self.logger.error("********* category creation Test is Failed ***********")
         #     self.driver.close()
         #     assert False
@@ -1504,6 +1501,10 @@ class Test_Resources(BaseClass):
             self.logger.error("************** content creation test is failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_categorydelete.png")
             assert False
+
+
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
 
 
 

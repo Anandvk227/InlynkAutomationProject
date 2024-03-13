@@ -100,7 +100,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_BannerImage.png")
             assert False
 
         time.sleep(1)
@@ -120,7 +120,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_BannerImage.png")
             assert False
         time.sleep(1)
         self.my.clickClosetoaster()
@@ -136,7 +136,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_BannerImage.png")
             assert False
 
 
@@ -171,7 +171,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_profileImages.png")
             assert False
         time.sleep(1)
         self.my.ProfileEditButton()
@@ -188,7 +188,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_profileImages.png")
             assert False
         time.sleep(1)
         self.my.ProfileEditButton()
@@ -204,7 +204,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_profileImages.png")
             assert False
 
 
@@ -245,7 +245,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_RequiredDetails.png")
             assert False
 
     # OverView___________________________________________________________________________________
@@ -275,7 +275,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_OverView.png")
             assert False
 
 
@@ -318,7 +318,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_PersonalDetails.png")
             assert False
 
 
@@ -356,7 +356,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EducationalDetails.png")
             assert False
 
         # Address__________________________________________________________________________
@@ -408,7 +408,7 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_Address.png")
             assert False
 
         # Social Media Links________________________________________
@@ -444,5 +444,8 @@ class TestMyProfile(BaseClass):
             assert True
         except:
             self.logger.info(f"Text Not Found")
-            self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveVerify.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_SocialMediaLinks.png")
             assert False
+
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)

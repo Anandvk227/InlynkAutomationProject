@@ -239,7 +239,7 @@ class TestInividualSignUp:
                 # Additional actions can be performed here if needed
             else:
                 self.logger.info(f"Error text not found: {text}")
-                self.driver.save_screenshot(".\\ScreenShots\\" + "test_IndividualSignUpWith_inValid_Data.png")
+                self.driver.save_screenshot(".\\Screenshots\\" + "test_IndividualSignUpWith_inValid_Data.png")
                 # self.logger.error("********* Validation of Error message with invalid data test is Failed ***********")
                 self.driver.close()
                 assert False

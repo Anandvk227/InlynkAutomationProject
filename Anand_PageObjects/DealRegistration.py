@@ -210,7 +210,7 @@ class dealregistration:
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_savedeal_xpath)))
         element.click()
-        time.sleep(3)
+        time.sleep(4)
     def okaybutton(self):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.button_clickonokay_xpath)))

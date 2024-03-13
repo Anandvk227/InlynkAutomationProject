@@ -32,7 +32,9 @@ class Test_Create_Recognition(BaseClass):
 
     logger=LogGen.loggen()
 
-    # @pytest.mark.anand
+
+    @pytest.mark.regression
+    @pytest.mark.run(order=81)
     # @pytest.mark.skip(reason="skipping this Test")
     def test_CreateRecognition_Verify_Employee_got_Recognition(self):
         self.logger.info("****Started Login Test****")
@@ -40,7 +42,7 @@ class Test_Create_Recognition(BaseClass):
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(1)
+        time.sleep(3)
         if "News Feed" in self.driver.page_source:
             self.logger.info("********** OEM Company Login successfully *********")
 
@@ -72,13 +74,14 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.clickpublish()
         time.sleep(2)
         if "Employee recognition has been successfully published" in self.driver.page_source:
+            self.logger.info("********** Employee recognition published test is passed *********")
             self.logger.info("********** content creation test is passed *********")
             print(self,'--self')
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition published test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_CreateRecognition_Verify_Employee_got_Recognition.png")
             assert False
         self.lp.clickLogout()
         self.lp.setUserName(self.username1)
@@ -86,16 +89,20 @@ class Test_Create_Recognition(BaseClass):
         self.lp.clickLogin()
         time.sleep(4)
         if "Congratulations" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition verification test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_CreateRecognition_Verify_Employee_got_Recognition.png")
             assert False
         self.rcp.closepopup()
         self.lp.clickLogout()
 
+
+    @pytest.mark.regression
+    @pytest.mark.run(order=82)
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.skip(reason="skipping this Test")
     def test_UnpublishedRecognition_and_Verify_in_Employee_account(self):
         self.logger.info("****Started Login Test****")
@@ -138,22 +145,23 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.savetemplate()
         time.sleep(2)
         if "Employee recognition has been saved in unpublished" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition unpublished test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition unpublished test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedRecognition_and_Verify_in_Employee_account.png")
             assert False
         time.sleep(1)
 
         if "Anand" in self.driver.page_source:
+            self.logger.info("********** Employee verification test is passed *********")
             self.logger.info("********** content creation test is passed *********")
 
         else:
         # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedRecognition_and_Verify_in_Employee_account.png")
             assert False
         self.lp.clickLogout()
         self.lp.setUserName(self.username1)
@@ -170,6 +178,9 @@ class Test_Create_Recognition(BaseClass):
             assert False
         self.lp.clickLogout()
 
+
+    @pytest.mark.regression
+    @pytest.mark.run(order=83)
     # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.anand
     def test_UnpublishedtoPunlishRecognition(self):
@@ -213,22 +224,23 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.savetemplate()
         time.sleep(2)
         if "Employee recognition has been saved in unpublished" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition unpublished test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition unpublished test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedtoPublishRecognition.png")
             assert False
         time.sleep(1)
 
         if "Anand" in self.driver.page_source:
+            self.logger.info("********** Employee verification test is passed *********")
             self.logger.info("********** content creation test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedtoPublishRecognition.png")
             assert False
         time.sleep(1)
         self.lp.clickLogout()
@@ -278,12 +290,12 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.publishconfirm()
         time.sleep(2)
         if "Employee Recognition has been published successfully" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition published test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition published test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedtoPublishRecognition.png")
             assert False
         time.sleep(3)
         self.lp.clickLogout()
@@ -293,12 +305,12 @@ class Test_Create_Recognition(BaseClass):
         self.lp.clickLogin()
         time.sleep(4)
         if "Congratulations" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee verification test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_UnpublishedtoPublishRecognition.png")
             assert False
         time.sleep(2)
         self.rcp.closepopup()
@@ -306,6 +318,10 @@ class Test_Create_Recognition(BaseClass):
         self.lp.clickLogout()
         time.sleep(2)
 
+
+    @pytest.mark.regression
+    @pytest.mark.run(order=84)
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.pspk
     def test_EditRecognition(self):
@@ -349,22 +365,23 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.savetemplate()
         time.sleep(2)
         if "Employee recognition has been saved in unpublished" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition unpublished test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition unpublished test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EditRecognition.png")
             assert False
         time.sleep(2)
 
         if "Anand" in self.driver.page_source:
+            self.logger.info("********** Employee verification test is passed *********")
             self.logger.info("********** content creation test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EditRecognition.png")
             assert False
         time.sleep(3)
         self.lp.clickLogout()
@@ -424,12 +441,12 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.clickpublish()
         time.sleep(2)
         if "Employee recognition has been successfully published" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee recognition published test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee recognition published test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EditRecognition.png")
             assert False
         time.sleep(3)
         self.lp.clickLogout()
@@ -439,18 +456,21 @@ class Test_Create_Recognition(BaseClass):
         self.lp.clickLogin()
         time.sleep(4)
         if "Congratulations" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee verification test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_EditRecognition.png")
             assert False
         time.sleep(3)
         self.rcp.closepopup()
         time.sleep(3)
         self.lp.clickLogout()
 
+
+    @pytest.mark.regression
+    @pytest.mark.run(order=85)
     # @pytest.mark.skip(reason="skipping this Test")
     def test_CreateRecognition_Verify_Employee_got_Recognition_download_Recognition(self):
         self.logger.info("****Started Login Test****")
@@ -503,12 +523,12 @@ class Test_Create_Recognition(BaseClass):
         self.lp.clickLogin()
         time.sleep(4)
         if "Congratulations" in self.driver.page_source:
-            self.logger.info("********** content creation test is passed *********")
+            self.logger.info("********** Employee verification test is passed *********")
 
         else:
             # Log and take a screenshot
-            self.logger.error("************** content creation test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeed1.png")
+            self.logger.error("************** Employee verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_CreateRecognition_Verify_Employee_got_Recognition_download_Recognition.png")
             assert False
         self.rcp.closepopup()
         self.rcp.clickmyprofiletab()
@@ -518,3 +538,6 @@ class Test_Create_Recognition(BaseClass):
         self.rcp.clickdownloadrecog()
         self.rcp.selectdownloadtype()
         time.sleep(6)
+
+    if __name__ == '__main__':
+        unittest.main(verbosity=2)
