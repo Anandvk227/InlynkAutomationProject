@@ -33,7 +33,7 @@ class Resources:
     addcategory_xpath = "//button[normalize-space()='Add CATEGORY']"
     categoryclose_xpath = "(//*[name()='svg'][@aria-label='Close'])[2]"
     contentbannerimage_xpath = "//input[@id='preview']"
-    bannerimagesave_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-191um2i'][normalize-space()='Save']"
+    bannerimagesave_xpath = "(//button[text()='Save'])[3]"
     contenttitle_xpath = "//input[@id='title']"
     contentdescription_xpath = "//textarea[@id='summary']"
     contentcanshare_xpath = "//input[@id='canShare']"
@@ -73,6 +73,15 @@ class Resources:
     Closetoaster_xpath = "//button[@class='Toastify__close-button Toastify__close-button--light']//*[name()='svg']//*[name()='path' and contains(@fill-rule,'evenodd')]"
     contentscroll_xpath = "//body/div[@id='root']/div[1]/div[1]/div[2]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]"
     scrollpublic_xpath = "//label[@id='outlined-basic-label']"
+    uploadvideo_xpath = "//span[normalize-space()='Upload Video files or URL']"
+    videoinput_xpath = "//input[@placeholder='Add YouTube Video URL here']"
+    uploadvideofile_xpath = "//button[normalize-space()='Upload Files']"
+    addvideo_xpath = "//button[normalize-space()='Add']"
+    backresources_xpath = "//span[text()='My Resources']"
+    contentclose_xpath = "//button[@aria-label='Close']"
+    videosbutton_xpath = "//button[normalize-space()='Videos']"
+    videoselect_xpath = "//h4[contains(text(),'PeopleLink at InfoComm 2020 - One of the largest A')]"
+    videoshare_xpath = "//div[@class='flexInline justifyEnd pointer']"
 
 
 
@@ -100,6 +109,59 @@ class Resources:
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
 
 
+
+    def clickonuploadvideo(self):
+        time.sleep(2)
+        actions = ActionChains(self.driver)
+
+        # Press the PAGE_DOWN key to scroll down
+        actions.send_keys(Keys.PAGE_DOWN)
+
+        # Perform the scrolling action
+        actions.perform()
+        time.sleep(3)
+        self.driver.find_element(By.XPATH,self.uploadvideo_xpath).click()
+
+    def setvideoinput(self,videoinput):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.videoinput_xpath).send_keys(videoinput)
+
+    def clickonuploadvideofile(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.uploadvideofile_xpath).click()
+
+    def clickonaddvideo(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.addvideo_xpath).click()
+
+    def clickonbackresources(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.backresources_xpath).click()
+
+    def clickoncontentclose(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.contentclose_xpath).click()
+
+    def clickonvideosbutton(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.videosbutton_xpath).click()
+
+    def clickonvideoselect(self):
+        time.sleep(1)
+        actions = ActionChains(self.driver)
+
+        # Press the PAGE_DOWN key to scroll down
+        actions.send_keys(Keys.PAGE_DOWN)
+
+        # Perform the scrolling action
+        actions.perform()
+
+        self.driver.find_element(By.XPATH,self.videoselect_xpath).click()
+        time.sleep(1)
+
+    def clickonvideoshare(self):
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,self.videoshare_xpath).click()
 
 
     def clickoncontentmanagement(self):

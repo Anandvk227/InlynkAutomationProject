@@ -23,7 +23,7 @@ class Certification:
     questionbank_xpath = "//span[normalize-space()='Question bank']"
     enterquestion_xpath = "//input[@placeholder='Enter the question here']"
     firstanswer_xpath = "//div[@class='flexMinWidthRow']//input[@id='title']"
-    add_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-191um2i']"
+    add_xpath = "//button[contains(@class,'MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-disableElevation css-191um2i')]"
     secondanswer_xpath = "//input[@placeholder='Type the answer 2']"
     categoryselect_xpath = "//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[@class=' innerMainCntnr sideNav']/div[@class='flexCol']/div[@class='flexCol respdngSM']/div[@class='pdngSM']/div[@class='flexCol whiteBg pdngSM']/div[@class='resColRow']/div[@class='QuestionBankRight pdngHXS']/div[@class='flexCol pdngXS ']/div[2]/div[1]/div[1]/div[1]/div[1]/label[1]/span[1]/span[1]"
     selectanswer_xpath = "(//div[@class='flexAutoRow alignCntr'])[2]"
@@ -131,15 +131,18 @@ class Certification:
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);", element)
     def clickoncertificationprogramme(self):
         time.sleep(1)
-        actions = ActionChains(self.driver)
+        element = self.driver.find_element(By.XPATH, self.certificationprogramme_xpath)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
 
-        # Press the PAGE_DOWN key to scroll down
-        actions.send_keys(Keys.PAGE_DOWN)
-
-        # Perform the scrolling action
-        actions.perform()
-        self.driver.find_element(By.XPATH,self.certificationprogramme_xpath).click()
-
+        # actions = ActionChains(self.driver)
+        #
+        # # Press the PAGE_DOWN key to scroll down
+        # actions.send_keys(Keys.PAGE_DOWN)
+        #
+        # # Perform the scrolling action
+        # actions.perform()
+        # self.driver.find_element(By.XPATH,self.certificationprogramme_xpath).click()
+        element.click()
     def clickonmarkingsystem(self):
         time.sleep(1)
         self.driver.find_element(By.XPATH,self.markingsystem_xpath).click()
@@ -191,7 +194,7 @@ class Certification:
     def clickonadd(self):
         time.sleep(1)
         element = self.driver.find_element(By.XPATH, self.add_xpath)
-
+        # self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
         # Scroll to the element using ActionChains
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()

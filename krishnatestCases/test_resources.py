@@ -77,6 +77,7 @@ class Test_Resources(BaseClass):
     contentsectiondescription = "Welcome to our free and intuitive description creation tool! Simplify the process of crafting compelling product page descriptions by leveraging the power of our Frase AI. Just input the product name, and let our innovative tool work its "
     sectionimagedescription = "image preview text description presented here"
     # companyname = "all company"
+    videoinput = "https://youtu.be/3lK3EyE9k4E"
 
 
 
@@ -89,7 +90,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.krishna
     @pytest.mark.regression
     @pytest.mark.run(order=64)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforcompany(self):
         self.logger.info("************* Test_001_categorycreation **********")
@@ -203,7 +204,10 @@ class Test_Resources(BaseClass):
         self.rs.clickoncontentcanshare()
         self.rs.setcontentsectionname(contentsectionname)
         self.rs.setcontentsectiondescription(self.contentsectiondescription)
-        # self.rs.clickonsectionimagepath()
+        self.rs.clickonuploadvideo()
+        self.rs.setvideoinput(self.videoinput)
+        self.rs.clickonuploadvideofile()
+        self.rs.clickonaddvideo()
         # self.rs.clickonsectionimageselect()
         # self.rs.setsectionimageselect(self.absolute_path1)
         # self.rs.setsectionimagedescription(self.sectionimagedescription)
@@ -222,6 +226,29 @@ class Test_Resources(BaseClass):
         self.rs.clickonresources()
         self.rs.setresourcescategorysearch(categorytitle)
         time.sleep(2)
+        # actions = ActionChains(self.driver)
+        #
+        # # Press the PAGE_DOWN key to scroll down
+        # actions.send_keys(Keys.PAGE_DOWN)
+        #
+        # # Perform the scrolling action
+        # actions.perform()
+        # time.sleep(2)
+        self.driver.find_element(By.XPATH, "(//span[text()='" + categorytitle + "'])[1]").click()
+        time.sleep(3)
+        if "Videos" in self.driver.page_source:
+            self.logger.info("********** content verification test is passed *********")
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** content verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_contentverificationinmyresources.png")
+            assert False
+        time.sleep(3)
+        self.rs.clickonbackresources()
+        time.sleep(1)
+        self.rs.setresourcescategorysearch(categorytitle)
+        time.sleep(2)
         actions = ActionChains(self.driver)
 
         # Press the PAGE_DOWN key to scroll down
@@ -229,8 +256,8 @@ class Test_Resources(BaseClass):
 
         # Perform the scrolling action
         actions.perform()
-        time.sleep(1)
-        self.driver.find_element(By.XPATH, "//span[text()='"+categorytitle+"']").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH,"(//span[text()='" + categorytitle + "'])[2]").click()
         time.sleep(3)
         self.driver.find_element(By.XPATH,"//h4[normalize-space()='"+contenttitle+"']").click()
         time.sleep(3)
@@ -268,7 +295,22 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "This content description is Our free tool lets you easily create unique descriptions for your product pages." in self.driver.page_source:
             self.logger.info("********** content verification test is passed *********")
-            self.driver.close()
+
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** content verification test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_categorycreationforcompany.png")
+            assert False
+        time.sleep(3)
+        self.rs.clickoncontentclose()
+        self.rs.clickonvideosbutton()
+        self.rs.clickonvideoselect()
+        self.rs.clickonvideoshare()
+        time.sleep(3)
+        if "Share" in self.driver.page_source:
+            self.logger.info("********** content verification test is passed *********")
+
 
         else:
             # Log and take a screenshot
@@ -280,7 +322,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.babi
     @pytest.mark.run(order=65)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforemployee(self):
         self.logger.info("************* Test_002_categorycreation **********")
@@ -459,7 +501,7 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "This content description is Our free tool lets you easily create unique descriptions for your product pages." in self.driver.page_source:
             self.logger.info("********** content verification test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -472,7 +514,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.regression
     @pytest.mark.run(order=66)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforhierarchy(self):
         self.logger.info("************* Test_003_categorycreation **********")
@@ -677,7 +719,7 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "You have reached the last subcategory, cannot go inside" in self.driver.page_source:
             self.logger.info("********** content verification test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -689,7 +731,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.regression
     @pytest.mark.run(order=67)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforrelationcompany(self):
         self.logger.info("************* Test_004_categorycreation **********")
@@ -875,7 +917,7 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "This content description is Our free tool lets you easily create unique descriptions for your product pages." in self.driver.page_source:
             self.logger.info("********** content verification test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -888,7 +930,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sohl
     @pytest.mark.regression
     @pytest.mark.run(order=68)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categoryshare(self):
         self.logger.info("************* Test_005_categorycreation **********")
@@ -1131,7 +1173,7 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "This content description is Our free tool lets you easily create unique descriptions for your product pages." in self.driver.page_source:
             self.logger.info("********** content verification test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -1143,7 +1185,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.ishq
     @pytest.mark.regression
     @pytest.mark.run(order=69)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categoryedit(self):
         self.logger.info("************* Test_006_categorycreation **********")
@@ -1314,7 +1356,7 @@ class Test_Resources(BaseClass):
         time.sleep(3)
         if "Section updated successfully" in self.driver.page_source:
             self.logger.info("********** content creation test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -1327,7 +1369,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.Gang
     @pytest.mark.regression
     @pytest.mark.run(order=70)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorydelete(self):
         self.logger.info("************* Test_007_categorycreation **********")
@@ -1493,7 +1535,7 @@ class Test_Resources(BaseClass):
 
         if "Category deleted successfully" in self.driver.page_source:
             self.logger.info("********** content creation test is passed *********")
-            self.driver.close()
+
 
 
         else:
@@ -1501,10 +1543,12 @@ class Test_Resources(BaseClass):
             self.logger.error("************** content creation test is failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_categorydelete.png")
             assert False
+        time.sleep(2)
 
 
     if __name__ == '__main__':
         unittest.main(verbosity=2)
+
 
 
 
