@@ -82,7 +82,7 @@ class WebinarPage:
     edit_listbox_xpath = "//span[normalize-space()='Edit']"
 
     UpdateMeeting_button_id = "Create"
-    UpdateConfirm_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation css-191um2i'][normalize-space()='Update']"
+    UpdateConfirm_xpath = "(//button[text()='Update'])[2]"
     #Moreaction_xpath = "(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium pointer css-vubbuv'])[3]"
     copy_link_xpath = "//span[normalize-space()='Copy link']"
     copy_invitation_xpath = "//span[normalize-space()='Copy invitation']"
@@ -140,7 +140,7 @@ class WebinarPage:
 
 
     def clickTAndWModule(self):
-        time.sleep(2)
+        time.sleep(3)
         # Scroll to bring the element into view
         element = self.driver.find_element(By.XPATH, self.TrainingAndWebinar_click_xpath)
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
@@ -512,6 +512,7 @@ class WebinarPage:
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.visibility_of_element_located((By.XPATH, self.Upcoming_March_25)))
         element.click()
+        time.sleep(3)
         # self.driver.find_element(By.XPATH,self.Upcoming_Feb_25).click()
 
 
@@ -520,7 +521,7 @@ class WebinarPage:
         self.driver.find_element(By.XPATH,self.search_WebinarMeeting_xpath).send_keys(web)
 
     def SessionEdit(self):
-        time.sleep(4)
+        time.sleep(3)
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.presence_of_element_located((By.XPATH, self.Session_Edit_xpath)))
         element.click()
@@ -684,7 +685,7 @@ class WebinarPage:
 
 
     def BookSeat(self):
-        time.sleep(2)
+        time.sleep(3)
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.presence_of_element_located((By.XPATH, self.BookSeat_linkTest_xpath)))
         element.click()

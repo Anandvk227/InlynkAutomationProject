@@ -24,7 +24,7 @@ class Test_Webinar(BaseClass):
     password = "Inlink@123"
     description = "About Media Drive Module of Inlink"
     LimitSeats = "10"
-    coHost = worksheet["A8"].value
+    coHost = worksheet["A6"].value
     panelist = worksheet["C6"].value
     Email = "ksunik7k3@gmail.com"
     PastTabSearch = "QA"
@@ -60,6 +60,7 @@ class Test_Webinar(BaseClass):
     workbook.close()
 
     @pytest.mark.run(order=86)
+    @pytest.mark.regression
     # @pytest.mark.skip(reason="skipping this test")
     def test_webinar(self):
         self.logger.info("****** Login verification *****")
@@ -317,7 +318,7 @@ class Test_Webinar(BaseClass):
         self.logger.info("****** TC_32	Verify the User Accessibility of Chat History *****")
         self.wp.PastSearch(self.PastTabSearch)
         time.sleep(2)
-        if "Webinar meeting" in self.driver.page_source:
+        if "QA   Meeting " in self.driver.page_source:
             self.logger.info("********* test_PastSessionCardSearch Test is Passed ***********")
 
         else:
@@ -416,6 +417,15 @@ class Test_Webinar(BaseClass):
         self.logger.info("****** TC_22	Verify Delete Training/Webinar option in 3dot button *****")
         self.wp.DeleteSession()
         self.wp.DeleteWebinar()
+        time.sleep(2)
+
+        if "Webinar deleted successfully" in self.driver.page_source:
+            self.logger.info("********* test_TrainingPastTab is passed ***********")
+        else:
+            self.logger.info("********* test_TrainingPastTab is failed ***********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_TrainingUpcoming.png")
+            self.logger.error("Page source:\n%s" % self.driver.page_source)
+            assert False
 
 
         # Training Session________________________________Training Session
@@ -594,6 +604,7 @@ class Test_Webinar(BaseClass):
         # Training upcoming tab-------------------------------------Training upcoming tab
 
     @pytest.mark.run(order=94)
+    @pytest.mark.krishna
     # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingUpcoming(self):
@@ -642,12 +653,13 @@ class Test_Webinar(BaseClass):
 
     # Training Past tab_______________________________________Training Past tab
     @pytest.mark.run(order=95)
-    @pytest.mark.skip(reason="skipping this test")
+    @pytest.mark.babi
+    # @pytest.mark.skip(reason="skipping this test")
     def test_TrainingPastTab(self):
         self.driver.get(self.baseURL)
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
+        self.lp.setUserName(self.username1)
         self.lp.setpassword(self.password)
         self.lp.clickLogin()
         # self.lp.clickNewsfeedModule()
@@ -662,7 +674,7 @@ class Test_Webinar(BaseClass):
         self.wp.FebDate()
         time.sleep(2)
 
-        if "training meeting" in self.driver.page_source:
+        if "Training Meeting" in self.driver.page_source:
             self.logger.info("********* test_TrainingPastTab is passed ***********")
         else:
             self.logger.info("********* test_TrainingPastTab is failed ***********")
