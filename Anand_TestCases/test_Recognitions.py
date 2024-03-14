@@ -257,8 +257,9 @@ class Test_Create_Recognition(BaseClass):
             self.logger.error("************** Employee Login failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "Employee_login_fail.png")
             assert False
-        self.lp.clickLogout()
+
         time.sleep(2)
+        self.lp.clickLogout()
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
@@ -398,8 +399,9 @@ class Test_Create_Recognition(BaseClass):
             self.logger.error("************** Employee Login failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "Employee_login_fail.png")
             assert False
-        self.lp.clickLogout()
+
         time.sleep(2)
+        self.lp.clickLogout()
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()

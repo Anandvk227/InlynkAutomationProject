@@ -90,7 +90,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.krishna
     @pytest.mark.regression
     @pytest.mark.run(order=64)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforcompany(self):
         self.logger.info("************* Test_001_categorycreation **********")
@@ -322,7 +322,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.babi
     @pytest.mark.run(order=65)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforemployee(self):
         self.logger.info("************* Test_002_categorycreation **********")
@@ -514,7 +514,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.regression
     @pytest.mark.run(order=66)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforhierarchy(self):
         self.logger.info("************* Test_003_categorycreation **********")
@@ -731,7 +731,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sanity
     @pytest.mark.regression
     @pytest.mark.run(order=67)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorycreationforrelationcompany(self):
         self.logger.info("************* Test_004_categorycreation **********")
@@ -930,7 +930,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.sohl
     @pytest.mark.regression
     @pytest.mark.run(order=68)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categoryshare(self):
         self.logger.info("************* Test_005_categorycreation **********")
@@ -1185,7 +1185,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.ishq
     @pytest.mark.regression
     @pytest.mark.run(order=69)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categoryedit(self):
         self.logger.info("************* Test_006_categorycreation **********")
@@ -1369,7 +1369,7 @@ class Test_Resources(BaseClass):
     @pytest.mark.Gang
     @pytest.mark.regression
     @pytest.mark.run(order=70)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_categorydelete(self):
         self.logger.info("************* Test_007_categorycreation **********")

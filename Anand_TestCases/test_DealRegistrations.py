@@ -22,12 +22,12 @@ class Test_Create_DealwithNetworkCompany(BaseClass):
     comapanyname="j industries"
     nameofcompany="Instavc Technologies"
     address="Q3-A4,Cyber Towers,Hi tech city"
-    department="software "+deptname
-    departmenttwo="Hardware"+deptname
-    departmentthree="Sales"+deptname
-    departmentfour="Marketing"+deptname
-    departmentfive="Networks"+deptname
-    departmentsix="IT"+deptname
+    department="Outsidesales "+deptname
+    departmenttwo="BPo"+deptname
+    departmentthree="InsideSales"+deptname
+    departmentfour="internationalMarketing"+deptname
+    departmentfive="DealNetworks"+deptname
+    departmentsix="ITcompany"+deptname
 
     wb = load_workbook("TestData/LoginData.xlsx")
 
@@ -67,6 +67,7 @@ class Test_Create_DealwithNetworkCompany(BaseClass):
     logger=LogGen.loggen()
 
     @pytest.mark.regression
+    @pytest.mark.ana
     @pytest.mark.run(order=75)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="skipping this Test")
@@ -417,7 +418,6 @@ class Test_Create_DealwithNetworkCompany(BaseClass):
         else:
             self.logger.info(f"Employee name not found: {element.text}")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Create_Edit_Approve_Through_Notification.png")
-            self.driver.close()
             assert False
 
         element.click()
@@ -491,7 +491,6 @@ class Test_Create_DealwithNetworkCompany(BaseClass):
         else:
             self.logger.info(f"Employee name not found: {element.text}")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_deal_Reject_Through_Notification.png")
-            self.driver.close()
             assert False
         element.click()
         time.sleep(3)

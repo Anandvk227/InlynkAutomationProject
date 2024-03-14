@@ -130,7 +130,7 @@ class Certification:
         # Scroll to the bottom of the page
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);", element)
     def clickoncertificationprogramme(self):
-        time.sleep(1)
+        time.sleep(2)
         element = self.driver.find_element(By.XPATH, self.certificationprogramme_xpath)
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'start', inline: 'nearest'});", element)
 
@@ -205,6 +205,7 @@ class Certification:
     def setsecondanswer(self,secondanswer):
         self.driver.find_element(By.XPATH,self.secondanswer_xpath).send_keys(secondanswer)
 
+
     def clickoncategoryselect(self):
         time.sleep(1)
         self.driver.find_element(By.XPATH, self.categoryselect_xpath).click()
@@ -225,7 +226,7 @@ class Certification:
         time.sleep(3)
 
     def clickonselectmarkingsystem(self):
-        time.sleep(2)
+        time.sleep(3)
         select_markingsystem = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, self.selectmarkingsystem_xpath))
         )

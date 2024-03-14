@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class Recognitions:
 
-    button_recognition_xpath="//body/div[@id='root']/div[@class='baseBlockCntnr']/div[@class='flexCol fullHeight']/div[contains(@class,'flexCol resSideNav')]/ul[@class='flexMinHeightCol resSideNavGroup pdngVSM scrollXHidden scrollbarSideNav']/div[1]/div[1]/div[2]"
+    button_recognition_xpath="//span[normalize-space()='Recognition']"
     button_newrecognition_xpath="//div[@class='flexAutoRow pointer pdngLSM webSearch']"
     button_selecttemplate_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]"
     button_selectbadge_xpath="//body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/div[2]/div[1]/div[2]"
@@ -80,7 +80,9 @@ class Recognitions:
         time.sleep(3)
 
     def clickemployee(self):
-        self.driver.find_element(By.XPATH,self.button_clickonemployee_xpath).click()
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, self.button_clickonemployee_xpath)))
+        element.click()
 
     def setaddtitle(self,addtitle):
         self.driver.find_element(By.XPATH,self.textbox_addtitle_xpath).send_keys(addtitle)
