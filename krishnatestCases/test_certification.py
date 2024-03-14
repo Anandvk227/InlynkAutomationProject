@@ -104,6 +104,7 @@ class Test_Certification(BaseClass):
         self.cp.setacronym2(acronym2)
 
         self.cp.clickonsave()
+        self.logger.info("*********** TC_01 Create the marking sysyem both published and unpublished list ***************")
         time.sleep(3)
         if "Acronym created and unpublished successfully" in self.driver.page_source:
             self.logger.info("********** Acronym creation test is passed *********")
@@ -116,7 +117,9 @@ class Test_Certification(BaseClass):
         time.sleep(3)
         self.cp.setsearch(acronym1)
         self.cp.clickonacronymedit()
+        self.logger.info("*********** TC_02 move the unpublish to publish. the marking System  **********")
         self.cp.clickonacronympublish()
+        self.logger.info("************ TC_03 edit and delete the marking system ***************")
         time.sleep(3)
         if "Acronym updated and published successfully" in self.driver.page_source:
             self.logger.info("********** Acronym update test is passed *********")
@@ -167,7 +170,7 @@ class Test_Certification(BaseClass):
             self.logger.error("************** Question update test is failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_questionupdate.png")
             assert False
-        time.sleep(1)
+        time.sleep(3)
         self.cp.clickontemplates()
         self.cp.clickonmarkingsystemnew()
         time.sleep(1)
