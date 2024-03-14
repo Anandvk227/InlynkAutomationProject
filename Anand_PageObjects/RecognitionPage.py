@@ -84,7 +84,6 @@ class Recognitions:
         element = wait.until(EC.element_to_be_clickable((By.XPATH, self.button_clickonemployee_xpath)))
         element.click()
 
-
     def setaddtitle(self,addtitle):
         self.driver.find_element(By.XPATH,self.textbox_addtitle_xpath).send_keys(addtitle)
 
