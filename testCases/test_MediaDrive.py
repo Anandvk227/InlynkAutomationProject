@@ -53,13 +53,13 @@ class TestMediaDrive(BaseClass):
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
-        # self.lp.clickLogin()
-        # self.lp.clickNewsFeed()
+        self.lp.clickLogin()
+        self.lp.clickNewsFeed()
         self.md = mediaDrivePage(self.driver)
         self.md.clickMediaDrive()
 
     @pytest.mark.regression
-    @pytest.mark.skip("created a common method")
+    # @pytest.mark.skip("created a common method")
     @pytest.mark.run(order=97)
     def test_MediaDriveVerify(self):
         self.test_MediaDrive()
@@ -78,7 +78,7 @@ class TestMediaDrive(BaseClass):
             assert False
 
     @pytest.mark.regression
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @pytest.mark.run(order=98)
     def test_MediaDriveCreationAndUpload(self):
         self.test_MediaDrive()

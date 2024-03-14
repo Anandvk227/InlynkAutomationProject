@@ -120,13 +120,13 @@ class ConfigurationPage:
         element.click()
 
     def setsearchField(self, searchField):
-        time.sleep(2)
+        # time.sleep(2)
         wait = WebDriverWait(self.driver, 20)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, self.searchField_xpath)))
         element.clear()
         # element.send_keys(Keys.CONTROL + "a", searchField)
         element.send_keys(searchField)
-        time.sleep(1)
+        time.sleep(3)
 
     def setRelationsearchField(self, searchRelation):
         self.driver.find_element(By.XPATH, self.searchField_xpath).clear()
@@ -180,17 +180,19 @@ class ConfigurationPage:
     def clickopenDept(self):
         time.sleep(1)
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.area_openDept_xpath)))
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, self.area_openDept_xpath)))
         element.click()
 
     def clickDivisionsTab(self):
+        time.sleep(1)
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.element_to_be_clickable((By.XPATH, self.tab_Divisions_xpath)))
         element.click()
 
     def clickDesignationsTab(self):
+        time.sleep(1)
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(EC.visibility_of_element_located((By.XPATH, self.tab_Designations_xpath)))
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, self.tab_Designations_xpath)))
         element.click()
 
     def clickEditDepartment(self):

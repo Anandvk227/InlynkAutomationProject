@@ -49,12 +49,13 @@ class TestEmployeeSignUp(BaseClass):
     # @pytest.mark.parametrize("run_number", range(1, 2))
     @pytest.mark.regression
     # @pytest.mark.skip
-    @pytest.mark.tests
+
     def test_EmployeeSignUpValidWithoutDomain(self):
         self.logger = LogGen.loggen()
         self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
         self.logger.info("******** User is on Login page ***********")
-
+        email = randomGen.random_email()
+        first_name = randomGen.random_first_name()
         wb = load_workbook("TestData/LoginData.xlsx")
 
         # Select the active worksheet
@@ -62,8 +63,6 @@ class TestEmployeeSignUp(BaseClass):
 
         # Read the data from the cells
         companyName = ws['C2'].value
-        first_name = ws['A6'].value
-        email = ws['B6'].value
 
         # Close the workbook
         # wb.close()
@@ -251,20 +250,125 @@ class TestEmployeeSignUp(BaseClass):
 
     @pytest.mark.run(order=18)
     @pytest.mark.regression
-
-    # @pytest.mark.test
     # @pytest.mark.skip(reason="skip for now")
     def test_ApproveSignedUpEmployee(self):
-        self.test_EmployeeSignUpValidWithoutDomain()
+        self.logger = LogGen.loggen()
+        self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
+        self.logger.info("******** User is on Login page ***********")
+
         wb = load_workbook("TestData/LoginData.xlsx")
 
         # Select the active worksheet
         ws = wb.active
-        email = ws['A2'].value
+
+        # Read the data from the cells
+        companyName = ws['C2'].value
         first_name = ws['A6'].value
+        email = ws['B6'].value
+
+        # Close the workbook
+        # wb.close()
+        # Verify the Signup functionality. with positive data.
+        self.sp = companySignUpPage(self.driver)
+        self.sp.clicksignuplink()
+        self.sp.ClickEmployeeSignUp()
+        self.logger.info("******** user is in company signup page ***********")
+        self.logger.info("******** Entering valid data into the fields ***********")
+        # 1. Verify the functionality and accuracy of the Company Selection dropdown.
+        self.sp.setSearchCompany(companyName)
+        self.sp.ClickSelectCompany()
+        self.sp.setFullName(first_name)
+        self.sp.setEmail(email)
+        self.sp.setPhone(self.phone_number)
+        self.sp.setPassword(self.password)
+        self.sp.setConfirmPassword(self.password)
+        self.sp.clicktermsConditions()
+        time.sleep(2)
+        self.logger.info("******** Clicking on signup button ***********")
+        self.logger.info("******** user navigated to enter OTP page ***********")
+        self.sp.clicksignupNow()
+        time.sleep(2)
+
+        # Execute JavaScript to open a new tab
+        self.driver.execute_script("window.open('about:blank', '_blank');")
+
+        # Perform actions in the new tab (if needed)
+        # For example:
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.logger.info("******** Opening new url in another tab for Email OTP ***********")
+        time.sleep(1)
+        self.driver.get("http://mailcatch.com/en/disposable-email")
+        time.sleep(1)
+        yopmail = self.driver.find_element(By.XPATH, "//input[@name='box']")
+        yopmail.send_keys(email + Keys.ENTER)
+        time.sleep(1)
+
+        reload_button = self.driver.find_element(By.XPATH, "//img[@title='Reload']")
+
+        # Click the Reload button every second until the subject is displayed or a maximum time is reached
+        max_wait_time = 60  # Set your maximum wait time in seconds
+        start_time = time.time()
+
+        while time.time() - start_time < max_wait_time:
+            reload_button.click()
+
+            try:
+                # Check if the subject is displayed
+                subject = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, "//td[@class='subject']"))
+                )
+                subject.click()
+                break  # Break out of the loop if subject is displayed
+            except StaleElementReferenceException:
+                print("StaleElementReferenceException occurred. Retrying...")
+                continue  # Retry the loop if StaleElementReferenceException occurs
+            except TimeoutException:
+                time.sleep(1)
+
+        iframeElement = self.driver.find_element(By.ID, "emailframe")
+        self.driver.switch_to.frame(iframeElement)
+
+        # Code outside the loop will be executed after the loop or when a TimeoutException occurs
+        otp = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//body"))
+        )
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", otp)
+        time.sleep(0.5)
+
+        confirmation_code = otp.text
+        getOTP = re.search(r'\b\d+\b', confirmation_code).group()
+        print(getOTP)
+
+        # This code is for QA ENV
+        otp = self.driver.find_element(By.XPATH, "//body")
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", otp)
+        time.sleep(0.5)
+
+        confirmation_code = otp.text
+        getOTP = re.search(r'\b\d+\b', confirmation_code).group()
+        print(getOTP)
+
+        self.logger.info("******** Switching back and entering the otp ***********")
+        self.driver.switch_to.default_content()
+
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
+        self.sp.setOtp(getOTP)
+
+        time.sleep(2)
+        self.logger.info("******** Verifying the OTP ***********")
+        self.sp.clickVerifyButton()
+        self.sp.clickContinueToLogin()
+
+        wb = load_workbook("TestData/LoginData.xlsx")
+
+        # Select the active worksheet
+        ws = wb.active
+        email2 = ws['A2'].value
+        # first_name = ws['A6'].value
 
         self.lp = LoginPage(self.driver)
-        self.lp.setUserName(email)
+        self.lp.setUserName(email2)
         self.lp.setPassword("Inlink@123")
         # self.lp.setPassword(self.password)
         self.lp.clickLogin()
@@ -326,12 +430,13 @@ class TestEmployeeSignUp(BaseClass):
 
     @pytest.mark.run(order=16)
     @pytest.mark.regression
-    @pytest.mark.tests
+    # @pytest.mark.tests
 
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # def test_EmployeeSignUpWithValid(self, run_number, setup):
     def test_EmployeeSignUpValidWithoutDomainAdmin(self):
         self.logger = LogGen.loggen()
+        self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
         self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
         self.logger.info("******** User is on Login page ***********")
 
@@ -531,16 +636,121 @@ class TestEmployeeSignUp(BaseClass):
 
     @pytest.mark.run(order=17)
     @pytest.mark.regression
-    # @pytest.mark.test
+    @pytest.mark.testing
+    # @pytest.mark.tests
     def test_RejectSignedUpEmployee(self):
-        self.test_EmployeeSignUpValidWithoutDomain()
+        self.logger = LogGen.loggen()
+        self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
+        self.logger.info("******** User is on Login page ***********")
+        email = randomGen.random_email()
+        first_name = randomGen.random_first_name()
+        wb = load_workbook("TestData/LoginData.xlsx")
 
+        # Select the active worksheet
+        ws = wb.active
+
+        # Read the data from the cells
+        companyName = ws['C2'].value
+
+        # Close the workbook
+        # wb.close()
+        # Verify the Signup functionality. with positive data.
+        self.sp = companySignUpPage(self.driver)
+        self.sp.clicksignuplink()
+        self.sp.ClickEmployeeSignUp()
+        self.logger.info("******** user is in company signup page ***********")
+        self.logger.info("******** Entering valid data into the fields ***********")
+        # 1. Verify the functionality and accuracy of the Company Selection dropdown.
+        self.sp.setSearchCompany(companyName)
+        self.sp.ClickSelectCompany()
+        self.sp.setFullName(first_name)
+        self.sp.setEmail(email)
+        self.sp.setPhone(self.phone_number)
+        self.sp.setPassword(self.password)
+        self.sp.setConfirmPassword(self.password)
+        self.sp.clicktermsConditions()
+        time.sleep(2)
+        self.logger.info("******** Clicking on signup button ***********")
+        self.logger.info("******** user navigated to enter OTP page ***********")
+        self.sp.clicksignupNow()
+        time.sleep(2)
+
+        # Execute JavaScript to open a new tab
+        self.driver.execute_script("window.open('about:blank', '_blank');")
+
+        # Perform actions in the new tab (if needed)
+        # For example:
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.logger.info("******** Opening new url in another tab for Email OTP ***********")
+        time.sleep(1)
+        self.driver.get("http://mailcatch.com/en/disposable-email")
+        time.sleep(1)
+        yopmail = self.driver.find_element(By.XPATH, "//input[@name='box']")
+        yopmail.send_keys(email + Keys.ENTER)
+        time.sleep(1)
+
+        reload_button = self.driver.find_element(By.XPATH, "//img[@title='Reload']")
+
+        # Click the Reload button every second until the subject is displayed or a maximum time is reached
+        max_wait_time = 60  # Set your maximum wait time in seconds
+        start_time = time.time()
+
+        while time.time() - start_time < max_wait_time:
+            reload_button.click()
+
+            try:
+                # Check if the subject is displayed
+                subject = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, "//td[@class='subject']"))
+                )
+                subject.click()
+                break  # Break out of the loop if subject is displayed
+            except StaleElementReferenceException:
+                print("StaleElementReferenceException occurred. Retrying...")
+                continue  # Retry the loop if StaleElementReferenceException occurs
+            except TimeoutException:
+                time.sleep(1)
+
+        iframeElement = self.driver.find_element(By.ID, "emailframe")
+        self.driver.switch_to.frame(iframeElement)
+
+        # Code outside the loop will be executed after the loop or when a TimeoutException occurs
+        otp = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//body"))
+        )
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", otp)
+        time.sleep(0.5)
+
+        confirmation_code = otp.text
+        getOTP = re.search(r'\b\d+\b', confirmation_code).group()
+        print(getOTP)
+
+        # This code is for QA ENV
+        otp = self.driver.find_element(By.XPATH, "//body")
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", otp)
+        time.sleep(0.5)
+
+        confirmation_code = otp.text
+        getOTP = re.search(r'\b\d+\b', confirmation_code).group()
+        print(getOTP)
+
+        self.logger.info("******** Switching back and entering the otp ***********")
+        self.driver.switch_to.default_content()
+
+        self.driver.switch_to.window(self.driver.window_handles[0])
+
+        self.sp.setOtp(getOTP)
+
+        time.sleep(2)
+        self.logger.info("******** Verifying the OTP ***********")
+        self.sp.clickVerifyButton()
+        self.sp.clickContinueToLogin()
         wb = load_workbook("TestData/LoginData.xlsx")
 
         # Select the active worksheet
         ws = wb.active
         email = ws['A2'].value
-        first_name = ws['A6'].value
+        # first_name = ws['A6'].value
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(email)
         self.lp.setPassword("Inlink@123")

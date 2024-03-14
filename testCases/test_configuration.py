@@ -40,8 +40,7 @@ class TestConfiguration(BaseClass):
 
     @pytest.mark.regression
     # @pytest.mark.test
-
-    @pytest.mark.flaky(rerun=3, reun_delay=2)
+    # @pytest.mark.flaky(rerun=3, reun_delay=2)
     @pytest.mark.run(order=7)
     def test_createDept(self):
         self.logger.info("****Started Login Test****")
@@ -76,7 +75,11 @@ class TestConfiguration(BaseClass):
         time.sleep(3)
         self.logger.info(" Started TC_04 : Verify Search Department ")
         self.cp.setsearchField(self.DeptName + " " + self.first_name)
-        self.cp.clickopenDept()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'"+self.DeptName + " " + self.first_name+"')]"))
+        )
+        element.click()
+        # self.cp.clickopenDept()
         self.logger.info(" Started TC_06 : Verify create NEW Division ")
         self.cp.clickDivisionsTab()
         self.cp.clickNewBtn()
