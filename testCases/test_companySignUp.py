@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pageObjects.companyListingPage import companyListingPage
 from pageObjects.LoginPage import LoginPage
-from testCases.conftest import setup
+# from testCases.conftest import setup
 from utilities.customLogger import LogGen
 from utilities.readProperties import ReadConfig
 from pageObjects.companySignUpPage import companySignUpPage

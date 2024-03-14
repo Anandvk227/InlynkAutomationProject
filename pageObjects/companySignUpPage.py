@@ -47,9 +47,12 @@ class companySignUpPage:
         self.driver.find_element(By.XPATH, self.link_signUp_xpath).click()
 
     # Employee Sign Up
-    def setSearchCompany(self, Password):
-        self.driver.find_element(By.XPATH, self.text_searchCompany_xpath).send_keys(Password)
-
+    def setSearchCompany(self, name):
+        # self.driver.find_element(By.XPATH, self.text_searchCompany_xpath).send_keys(Password)
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.text_searchCompany_xpath))
+        )
+        element.send_keys(name)
     def ClickEmployeeSignUp(self):
         time.sleep(3)
         # Scroll to bring the element into view

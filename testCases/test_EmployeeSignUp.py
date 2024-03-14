@@ -23,37 +23,50 @@ class TestEmployeeSignUp(BaseClass):
     baseURL = ReadConfig.getApplicationURL()
     password = ReadConfig.getPassword()
 
+    email = randomGen.random_email()
+    first_name = randomGen.random_first_name()
+    phone_number = randomGen.random_phone_number()
+    email1 = randomGen.random_email()
+    first_name1 = randomGen.random_first_name()
+
+    # Load the existing workbook
+    wb = load_workbook("TestData/LoginData.xlsx")
+
+    # Select the active worksheet
+    ws = wb.active
+
+    # Update the existing cells with new data
+    ws['A6'] = first_name
+    ws['B6'] = email
+    ws['C6'] = first_name1
+    ws['D6'] = email1
+    # Save the changes and close the workbook
+    wb.save("TestData/LoginData.xlsx")
+    wb.close()
+    time.sleep(5)
+
     @pytest.mark.run(order=14)
     # @pytest.mark.parametrize("run_number", range(1, 2))
     @pytest.mark.regression
     # @pytest.mark.skip
-    # @pytest.mark.test
+    @pytest.mark.tests
     def test_EmployeeSignUpValidWithoutDomain(self):
         self.logger = LogGen.loggen()
         self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
         self.logger.info("******** User is on Login page ***********")
 
-        email = randomGen.random_email()
-        first_name = randomGen.random_first_name()
-        phone_number = randomGen.random_phone_number()
-
-        self.logger.info("******** Generating and storing data into excel sheet ***********")
-        # Load the existing workbook
         wb = load_workbook("TestData/LoginData.xlsx")
 
         # Select the active worksheet
         ws = wb.active
 
+        # Read the data from the cells
         companyName = ws['C2'].value
-        companyEmail = ws['A2'].value
+        first_name = ws['A6'].value
+        email = ws['B6'].value
 
-        # Update the existing cells with new data
-        ws['A6'] = first_name
-        ws['B6'] = email
-        # ws['C6'] = phone_number
-
-        # Save the workbook
-        wb.save("TestData/LoginData.xlsx")
+        # Close the workbook
+        # wb.close()
         # Verify the Signup functionality. with positive data.
         self.sp = companySignUpPage(self.driver)
         self.sp.clicksignuplink()
@@ -65,7 +78,7 @@ class TestEmployeeSignUp(BaseClass):
         self.sp.ClickSelectCompany()
         self.sp.setFullName(first_name)
         self.sp.setEmail(email)
-        self.sp.setPhone(phone_number)
+        self.sp.setPhone(self.phone_number)
         self.sp.setPassword(self.password)
         self.sp.setConfirmPassword(self.password)
         self.sp.clicktermsConditions()
@@ -145,13 +158,12 @@ class TestEmployeeSignUp(BaseClass):
         self.logger.info("******** Verifying the OTP ***********")
         self.sp.clickVerifyButton()
         self.sp.clickContinueToLogin()
+        # email2 = ws['B6'].value
         # self.logger.info("******** Employee Sign Up successful ***********")
         # self.logger.info("******** Entering the sig up credentials for Login ***********")
         # # Read data from specific cells
-        # email = ws['A2'].value
-        #
         # self.lp = LoginPage(self.driver)
-        # self.lp.setUserName(email)
+        # self.lp.setUserName(email2)
         # self.lp.setPassword(self.password)
         # self.lp.clickLogin()
         # self.lp.clickcreatePost()
@@ -239,6 +251,7 @@ class TestEmployeeSignUp(BaseClass):
 
     @pytest.mark.run(order=18)
     @pytest.mark.regression
+
     # @pytest.mark.test
     # @pytest.mark.skip(reason="skip for now")
     def test_ApproveSignedUpEmployee(self):
@@ -313,16 +326,16 @@ class TestEmployeeSignUp(BaseClass):
 
     @pytest.mark.run(order=16)
     @pytest.mark.regression
-    @pytest.mark.test
-    @pytest.mark.flaky(rerun=3, rerun_delay=2)
+    @pytest.mark.tests
+
+    # @pytest.mark.flaky(rerun=3, rerun_delay=2)
     # def test_EmployeeSignUpWithValid(self, run_number, setup):
     def test_EmployeeSignUpValidWithoutDomainAdmin(self):
         self.logger = LogGen.loggen()
         self.logger.info("******** Starting test_Employee Sign Up with Valid ***********")
         self.logger.info("******** User is on Login page ***********")
 
-        email1 = randomGen.random_email()
-        first_name1 = randomGen.random_first_name()
+
         phone_number = randomGen.random_phone_number()
 
         self.logger.info("******** Generating and storing data into excel sheet ***********")
@@ -333,11 +346,12 @@ class TestEmployeeSignUp(BaseClass):
         ws = wb.active
 
         companyName = ws['C2'].value
+        first_name1 = ws['C6'].value
+        email1 = ws['D6'].value
         companyEmail = ws['A2'].value
 
         # Update the existing cells with new data
-        ws['C6'] = first_name1
-        ws['D6'] = email1
+
         # ws['C6'] = phone_number
 
         # Save the workbook

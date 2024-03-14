@@ -41,20 +41,20 @@ class TestNewsFeed(BaseClass):
 
     workbook.close()
     # Load the existing workbook
-    wb = load_workbook("TestData/LoginData.xlsx")
-
-    # Select the active worksheet
-    ws = wb.active
+    # wb = load_workbook("TestData/LoginData.xlsx")
+    #
+    # # Select the active worksheet
+    # ws = wb.active
 
     # Update the existing cells with new data
-    ws['A2'] = username
-    ws['B6'] = usernames
-    ws['I2'] = usernames1
-    ws['I3'] = usernames2
-    ws['D6'] = usernames3
-
-    # Save the workbook
-    wb.save("TestData/LoginData.xlsx")
+    # ws['A2'] = username
+    # ws['B6'] = usernames
+    # ws['I2'] = usernames1
+    # ws['I3'] = usernames2
+    # ws['D6'] = usernames3
+    #
+    # # Save the workbook
+    # wb.save("TestData/LoginData.xlsx")
 
 
 
@@ -86,10 +86,10 @@ class TestNewsFeed(BaseClass):
     logger = LogGen.loggen()  # Logger
 
 
-    @pytest.mark.sanity
+    @pytest.mark.tests
     @pytest.mark.regression
     @pytest.mark.run(order=43)
-    @pytest.mark.flaky(reruns=3,reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3,reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforemployees(self):
         self.logger.info("************* Test_001_NewsFeed **********")
@@ -984,9 +984,10 @@ class TestNewsFeed(BaseClass):
             assert False
 
     @pytest.mark.sanity
+    @pytest.mark.tests
     @pytest.mark.regression
     @pytest.mark.run(order=60)
-    @pytest.mark.flaky(reruns=3, reruns_delay=2)
+    # @pytest.mark.flaky(reruns=3, reruns_delay=2)
     # @pytest.mark.skip(reason="Skipping this test")
     def test_adminfeed(self):
         self.logger.info("************* Test_018_NewsFeed **********")

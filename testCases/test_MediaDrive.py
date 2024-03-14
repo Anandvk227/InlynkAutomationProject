@@ -53,8 +53,8 @@ class TestMediaDrive(BaseClass):
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        self.lp.clickNewsFeed()
+        # self.lp.clickLogin()
+        # self.lp.clickNewsFeed()
         self.md = mediaDrivePage(self.driver)
         self.md.clickMediaDrive()
 
@@ -142,45 +142,45 @@ class TestMediaDrive(BaseClass):
                 self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveCreationAndUpload.png")
                 assert False
 
-        # # Upload folder
-        # self.md.clickButtonNew()
-        # self.logger.info("****TC_03  verify upload folder***")
-        # self.md.setUploadFiles(self.folder_path)
-        #
-        # xpath_success_message = "//div[contains(text(),'File uploaded successfully')]"
-        # xpath_popup = "//body/div[@role='presentation']/div[@role='presentation']/div[@role='dialog']/div[@class='MuiDialogContent-root css-1ty026z']/p[@class='MuiTypography-root MuiDialogContentText-root MuiTypography-body1 MuiDialogContentText-root css-o3d33y']/div[@class='MuiFormControl-root css-13sljp9']/div[@role='radiogroup']/label[1]/span[1]"
-        # xpath_upload = "//button[normalize-space()='Upload']"
-        #
-        # try:
-        #     element = WebDriverWait(self.driver, 10).until(
-        #         EC.presence_of_element_located((By.XPATH, xpath_success_message))
-        #     )
-        #     self.logger.info(f"Text Found: {element.text}")
-        #     assert True
-        #
-        # except TimeoutException:
-        #     self.logger.info("Success Message Not Found")
-        #
-        #     try:
-        #         popup_element = WebDriverWait(self.driver, 5).until(
-        #             EC.presence_of_element_located((By.XPATH, xpath_popup))
-        #         )
-        #         popup_element.click()
-        #         popup_element1 = WebDriverWait(self.driver, 5).until(
-        #             EC.presence_of_element_located((By.XPATH, xpath_upload))
-        #         )
-        #         popup_element1.click()
-        #
-        #         element = WebDriverWait(self.driver, 10).until(
-        #             EC.presence_of_element_located((By.XPATH, xpath_success_message))
-        #         )
-        #         self.logger.info(f"Text Found: {element.text}")
-        #         assert True
-        #
-        #     except TimeoutException:
-        #         self.logger.info("Pop-up or Success Message Not Found")
-        #         self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
-        #         assert False
+        # Upload folder
+        self.md.clickButtonNew()
+        self.logger.info("****TC_03  verify upload folder***")
+        self.md.setUploadFiles(self.folder_path)
+
+        xpath_success_message = "//div[contains(text(),'File uploaded successfully')]"
+        xpath_popup = "//body/div[@role='presentation']/div[@role='presentation']/div[@role='dialog']/div[@class='MuiDialogContent-root css-1ty026z']/p[@class='MuiTypography-root MuiDialogContentText-root MuiTypography-body1 MuiDialogContentText-root css-o3d33y']/div[@class='MuiFormControl-root css-13sljp9']/div[@role='radiogroup']/label[1]/span[1]"
+        xpath_upload = "//button[normalize-space()='Upload']"
+
+        try:
+            element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, xpath_success_message))
+            )
+            self.logger.info(f"Text Found: {element.text}")
+            assert True
+
+        except TimeoutException:
+            self.logger.info("Success Message Not Found")
+
+            try:
+                popup_element = WebDriverWait(self.driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, xpath_popup))
+                )
+                popup_element.click()
+                popup_element1 = WebDriverWait(self.driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, xpath_upload))
+                )
+                popup_element1.click()
+
+                element = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, xpath_success_message))
+                )
+                self.logger.info(f"Text Found: {element.text}")
+                assert True
+
+            except TimeoutException:
+                self.logger.info("Pop-up or Success Message Not Found")
+                self.driver.save_screenshot(".\\ScreenShots\\" + "test_MediaDriveCreationAndUpload.png")
+                assert False
 
     @pytest.mark.regression
     # @pytest.mark.test

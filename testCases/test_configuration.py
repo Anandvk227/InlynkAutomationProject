@@ -72,9 +72,8 @@ class TestConfiguration(BaseClass):
         else:
             self.driver.save_screenshot(".\\Screenshots\\" + "test_createDept.png")
             self.logger.error("********* TC_01 : Verify create NEW Department Test is Failed ***********")
-
             assert False
-        time.sleep(2)
+        time.sleep(3)
         self.logger.info(" Started TC_04 : Verify Search Department ")
         self.cp.setsearchField(self.DeptName + " " + self.first_name)
         self.cp.clickopenDept()
