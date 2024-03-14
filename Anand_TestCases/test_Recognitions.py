@@ -102,7 +102,7 @@ class Test_Create_Recognition(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.run(order=82)
-    @pytest.mark.skip(reason="skipping this Test")
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.skip(reason="skipping this Test")
     def test_UnpublishedRecognition_and_Verify_in_Employee_account(self):
         self.logger.info("****Started Login Test****")
@@ -181,7 +181,7 @@ class Test_Create_Recognition(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.run(order=83)
-    @pytest.mark.skip(reason="skipping this Test")
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.anand
     def test_UnpublishedtoPunlishRecognition(self):
         self.logger.info("****Started Login Test****")
@@ -321,7 +321,7 @@ class Test_Create_Recognition(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.run(order=84)
-    @pytest.mark.skip(reason="skipping this Test")
+    # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.skip(reason="skipping this Test")
     # @pytest.mark.pspk
     def test_EditRecognition(self):
@@ -471,7 +471,7 @@ class Test_Create_Recognition(BaseClass):
 
     @pytest.mark.regression
     @pytest.mark.run(order=85)
-    @pytest.mark.skip(reason="skipping this Test")
+    # @pytest.mark.skip(reason="skipping this Test")
     def test_CreateRecognition_Verify_Employee_got_Recognition_download_Recognition(self):
         self.logger.info("****Started Login Test****")
         self.lp = LoginPage(self.driver)

@@ -34,8 +34,8 @@ class mediaDrivePage:
     # //div[contains(text(),'Folder name updated successfully')]
     searchField_xpath = "//input[@type='search']"
     closeFile_xpath = "//div[@aria-label='Close']//div[@class='flexInline alignCntr justifyCntr pointer mediaBtns']"
-    ViewMode_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-disableElevation css-1xio2w5']"
-    Filter_xpath = "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-axekbh']"
+    ViewMode_xpath = "(//button[@type='button'])[7]"
+    Filter_xpath = "(//button[@type='button'])[8]"
     AllCheckBox_xpath = "//body/div[@id='long-menu']/div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-pwxzbm']/ul[@role='menu']/li[1]/div[1]/div[1]/span[1]"
     imagesCheckBox_xpath = "//body/div[@id='long-menu']/div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiPopover-paper MuiMenu-paper MuiMenu-paper css-pwxzbm']/ul[@role='menu']/li[3]/div[1]/div[1]/span[1]"
     Closetoaster_xpath = "//button[@class='Toastify__close-button Toastify__close-button--light']//*[name()='svg']//*[name()='path' and contains(@fill-rule,'evenodd')]"
@@ -206,6 +206,7 @@ class mediaDrivePage:
         )
         element.click()
     def ClickViewMode(self):
+        time.sleep(2)
         element = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.ViewMode_xpath))
         )

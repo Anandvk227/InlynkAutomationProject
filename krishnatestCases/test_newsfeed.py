@@ -82,6 +82,7 @@ class TestNewsFeed(BaseClass):
     commenttext = "hiii gud mrng"
     replytext = "gudmorning all"
     commentedittext = "all "
+    search = "hii,all employees and relation companies"
 
     logger = LogGen.loggen()  # Logger
 
@@ -93,6 +94,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforemployees(self):
         self.logger.info("************* Test_001_NewsFeed **********")
+        self.logger.info("************** TC_01 Create a feed with text content.  **************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -137,6 +139,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforempndrel(self):
         self.logger.info("************* Test_002_NewsFeed **********")
+        self.logger.info("********** TC_20 Create a feed with Public enabled. *******")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -182,6 +185,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforpartners(self):
         self.logger.info("************* Test_003_NewsFeed **********")
+        self.logger.info("************* TC_21 Create a feed with Public disabled (default) and Partners checkbox selected.*************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -228,6 +232,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforarchived(self):
         self.logger.info("************* Test_004_NewsFeed **********")
+        self.logger.info("************ TC_22 Create a feed with Status disabled **********")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -269,6 +274,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwithimage(self):
         self.logger.info("************* Test_005_NewsFeed **********")
+        self.logger.info("*************** Test_06 Create a feed with text and upload 1 image.   **********")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -313,6 +319,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwith5images(self):
         self.logger.info("************* Test_006_NewsFeed **********")
+        self.logger.info("*********** TC_05 Create a feed with text and image uploads (up to 5 images). **************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -362,6 +369,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwith6images(self):
         self.logger.info("************* Test_007_NewsFeed **********")
+        self.logger.info("************* Tc_07 Attempt to create a feed with text and upload 6 images.************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -396,13 +404,12 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedwithimages(self):
         self.logger.info("************* Test_008_NewsFeed **********")
-
+        self.logger.info("************* TC_08 Create a feed with only image uploads (no text).")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
         self.logger.info("************* Login succesful **********")
-
         self.logger.info("******* Starting NewsFeed Test **********")
         self.nf = NewsFeed(self.driver)
         self.nf.clickOnwhat()
@@ -437,7 +444,7 @@ class TestNewsFeed(BaseClass):
 
         else:
             self.logger.error("************* NewsFeed test is failed **********")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedwith6images.png")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedwithimages.png")
             assert False
 
     @pytest.mark.sanity
@@ -448,7 +455,7 @@ class TestNewsFeed(BaseClass):
 
     def test_newsfeedforemployeesvideo(self):
         self.logger.info("************* Test_009_NewsFeed **********")
-
+        self.logger.info("************* TC_09 Create a feed with text and upload video. ************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -479,6 +486,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforemployeesvideos(self):
         self.logger.info("************* Test_010_NewsFeed **********")
+        self.logger.info("*************** TC_10 Attempt to create a feed with text and upload more than 20mb video. ************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -524,6 +532,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_newsfeedforempndrelvideo(self):
         self.logger.info("************* Test_011_NewsFeed **********")
+        self.logger.info("*********** TC_13 Create a feed with text and upload one YouTube URL. ***********")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -572,7 +581,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_editnewsfeedforemployees(self):
         self.logger.info("************* Test_012_NewsFeed **********")
-
+        self.logger.info("************ TC_23 Edit a feed by changing the text content ************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -632,6 +641,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_deletenewsfeedforempndrelvideo(self):
         self.logger.info("************* Test_013_NewsFeed **********")
+        self.logger.info("*********** TC_29 Delete a feed and select the checkbox for permanent deletion. **************")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -679,6 +689,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_archivenewsfeedwith5images(self):
         self.logger.info("************* Test_014_NewsFeed **********")
+        self.logger.info("************ TC_28 Delete a feed without selecting the checkbox. ***********")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -738,7 +749,7 @@ class TestNewsFeed(BaseClass):
     # @pytest.mark.skip(reason="Skipping this test")
     def test_bookmarknewsfeed(self):
         self.logger.info("************* Test_015_NewsFeed **********")
-
+        self.logger.info("************* TC_32 Add a feed to bookmarks. ***********")
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -775,6 +786,7 @@ class TestNewsFeed(BaseClass):
             assert False
         time.sleep(3)
         self.nf.clickonremove()
+        self.logger.info("************* TC_33 Remove a feed from bookmarks. **********")
         time.sleep(3)
         if "hii,all employees and relation companies" in self.driver.page_source:
             self.logger.error("********** NewsFeed test is failed *********")
@@ -1097,7 +1109,7 @@ class TestNewsFeed(BaseClass):
             self.driver.save_screenshot(".\\Screenshots\\" + "test_feedcomment.png")
             assert False
 
-    @pytest.mark.sanity
+    @pytest.mark.kri
     @pytest.mark.regression
     @pytest.mark.run(order=62)
     @pytest.mark.flaky(reruns=3, reruns_delay=2)
@@ -1177,6 +1189,23 @@ class TestNewsFeed(BaseClass):
             self.logger.error("************** NewsFeed test is failed **********")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedcreation.png")
             assert False
+        time.sleep(3)
+        self.nf.setsearch(self.search)
+        self.nf.clickonlike()
+        self.logger.info("************ TC_37 Like a feed. **********")
+        time.sleep(3)
+        if "1 Like" in self.driver.page_source:
+            self.logger.info("********** NewsFeed test is passed *********")
+            # self.driver.close()
+
+        else:
+            # Log and take a screenshot
+            self.logger.error("************** NewsFeed test is failed **********")
+            self.driver.save_screenshot(".\\Screenshots\\" + "test_newsfeedlike.png")
+            assert False
+        time.sleep(3)
+        self.nf.clickondislike()
+        self.logger.info("************* TC_38 Unlike a feed. ************")
 
     if __name__ == '__main__':
         unittest.main(verbosity=2)

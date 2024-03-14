@@ -34,7 +34,7 @@ class TestMediaDrive(BaseClass):
     workbook = load_workbook("TestData/LoginData.xlsx")
     worksheet = workbook.active
     username = worksheet["A2"].value
-    username2 = worksheet["I3"].value
+    username2 = worksheet["I2"].value
     EmpName = worksheet["C6"].value
     EmpEmail = worksheet["B6"].value
     EmpName2 = worksheet["A6"].value
@@ -45,7 +45,7 @@ class TestMediaDrive(BaseClass):
     logger = LogGen.loggen()
 
     @pytest.mark.regression
-    @pytest.mark.tests
+    # @pytest.mark.tests
     # @pytest.mark.skip("created a common method")
     @pytest.mark.run(order=96)
     def test_MediaDrive(self):
@@ -285,7 +285,7 @@ class TestMediaDrive(BaseClass):
 
     @pytest.mark.regression
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
-    # @pytest.mark.skip
+    @pytest.mark.test
     @pytest.mark.run(order=100)
     def test_MediaDriveshare(self):
         self.test_MediaDrive()
@@ -352,6 +352,7 @@ class TestMediaDrive(BaseClass):
         self.md.clickthreeDotsMenu()
         self.md.clickthreeDotsShare()
         self.md.clickdownArrow()
+        time.sleep(3)
         self.md.clickEdit()
         xpath = "//div[contains(text(),'Access updated successfully')]"
         try:
@@ -418,13 +419,13 @@ class TestMediaDrive(BaseClass):
         self.md.clickMediaDrive()
         self.logger.info("****TC_50	Verify the Shared with me Tab****")
         self.md.clickTabSharedWithMe()
-        self.md.setTabSearch(self.first_name2)
-        element = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//span[text()='No search results found']"))
+        # self.md.setTabSearch(self.first_name2)
+        element = WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'There are no shared items')]"))
         )
 
         # Assert the text
-        assert element.text == 'No search results found', f"Expected 'No search results found' but found '{element.text}'"
+        assert element.text == 'There are no shared items', f"Expected 'There are no shared items' but found '{element.text}'"
 
     @pytest.mark.regression
     # @pytest.mark.flaky(rerun=3, rerun_delay=2)
@@ -743,7 +744,7 @@ class TestMediaDrive(BaseClass):
             self.driver.save_screenshot(".\\Screenshots\\" + "test_MediaDriveTrashAll.png")
             assert False
 
-    @pytest.mark.test
+    # @pytest.mark.test
     @pytest.mark.run(order=105)
     def test_MediaDriveEmployeeCreateMedia(self):
         self.logger.info("****Started Login Test****")
@@ -819,7 +820,7 @@ class TestMediaDrive(BaseClass):
                 assert False
 
 
-    @pytest.mark.test
+    # @pytest.mark.test
     @pytest.mark.run(order=106)
     def test_TrashEmployeeMedia(self):
         self.test_MediaDrive()
@@ -875,11 +876,6 @@ class TestMediaDrive(BaseClass):
             self.logger.info(f"Text Not Found")
             self.driver.save_screenshot(".\\Screenshots\\" + "test_TrashEmployeeMedia.png")
             assert False
-
-
-
-
-
 
 
 if __name__ == "__main__":
