@@ -590,7 +590,7 @@ class Certification:
             EC.element_to_be_clickable((By.XPATH,self.certificateconfirmsave_xpath))
         )
         self.driver.find_element(By.XPATH,self.certificateconfirmsave_xpath).click()
-        time.sleep(2)
+        time.sleep(4)
 
     def clickoncertificateedit(self):
         time.sleep(2)
