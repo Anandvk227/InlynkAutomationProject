@@ -10,7 +10,7 @@ class BaseClass(unittest.TestCase):
         self.logger = LogGen.loggen()
         # self.driver = webdriver.Chrome()
         # Choose the browser you want (Chrome, Firefox, Edge, etc.)
-        browser_name = "Chrome"
+        browser_name = "Edge"
 
         if browser_name == "Chrome":
             self.driver = webdriver.Chrome()
