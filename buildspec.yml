@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      # Install pytest and other dependencies
+      - pip install pytest
+      # You can install other dependencies here using pip if needed
+
+  pre_build:
+    commands:
+      # Pre-build commands (e.g., setup environment variables)
+
+  build:
+    commands:
+      # Run pytest command with options
+      - pytest -v -s -m "testss" --html=Reports/report.html testCases/test_EmployeeSignUp.py
+
+  post_build:
+    commands:
+      # Post-build commands (e.g., generate test reports, clean up)
