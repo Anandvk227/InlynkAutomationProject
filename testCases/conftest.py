@@ -8,7 +8,13 @@ def setup(browser):
         driver = webdriver.Chrome()
         print("Launching chrome browser.........")
     elif browser == 'firefox':
-        driver = webdriver.Firefox()
+        firefox_options = FirefoxOptions()
+        firefox_options.binary_location = '/opt/firefox/firefox'
+        firefox_options.add_argument('--headless')
+
+        self.driver = webdriver.Firefox(options=firefox_options)
+
+        # driver = webdriver.Firefox()
         print("Launching firefox browser.........")
     return driver
 
